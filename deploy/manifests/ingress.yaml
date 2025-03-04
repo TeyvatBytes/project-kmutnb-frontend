@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cms-shop-frontend
+  annotations:
+    "cert-manager.io/cluster-issuer": "cf-teyvatsbyte-issuer-prod"
+spec:
+  rules:
+    - host: shop.teyvatbytes.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cms-shop-frontend
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - shop.teyvatbytes.com
+      secretName: tls-shop-secret
