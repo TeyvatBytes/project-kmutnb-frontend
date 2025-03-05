@@ -39,14 +39,14 @@
         <Separator class="lg:block hidden" orientation="vertical" />
         <div class="flex justify-between flex-col py-2">
             <div class="text-muted-foreground">คุณภาพของสินค้า</div>
-            <div class="flex gap-3">
+            <div class="flex gap-3 items-center">
                 <div class="font-bold text-xl">5.0</div>
-                <div class="flex gap-3">
+                <div class="flex gap-3 items-center">
                     {#each { length: 5 } as _}
                         <Star class="fill-yellow-200" />
                     {/each}
                 </div>
-                (13 รีวิว)
+                <div>(13 รีวิว)</div>
             </div>
         </div>
     </div>
