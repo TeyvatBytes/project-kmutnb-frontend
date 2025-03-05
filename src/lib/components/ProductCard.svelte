@@ -15,7 +15,7 @@
         </div>
         {#if product.image}
             <img
-                class="w-fit h-fit object-cover group-hover:scale-125 transition-all"
+                class="w-full h-full object-cover group-hover:scale-125 transition-all"
                 src={product.image}
                 alt=""
             />
