@@ -3,6 +3,7 @@
     import { onMount } from "svelte";
     import { Button } from "$lib/components/ui/button";
     import Globe from "$lib/components/ui/globe/Globe.svelte";
+    import Copyright from "$lib/components/Copyright.svelte";
 
     let scrolled = false;
 
@@ -517,12 +518,7 @@
                     </ul>
                 </div>
             </div>
-
-            <div
-                class="mt-8 pt-6 border-t border-gray-200 text-xs text-gray-500 text-center"
-            >
-                <p>© 2025 SellVat. สงวนลิขสิทธิ์ทั้งหมด.</p>
-            </div>
+            <Copyright />
         </div>
     </footer>
 </div>
