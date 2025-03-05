@@ -74,7 +74,6 @@
             id: 8,
             name: "หีเด็ก",
             price: 100,
-            stock: 10,
             category: "รหัส",
             description: "หีเด็ก",
             image: "https://static.trueplookpanya.com/tppy/member/m_557500_560000/559387/cms/images/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%94%E0%B8%A3%E0%B8%AA%E0%B9%80%E0%B8%94%E0%B9%87%E0%B8%81%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87_13.jpg",
