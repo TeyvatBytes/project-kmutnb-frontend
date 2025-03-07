@@ -2,6 +2,7 @@
     import { DollarSign } from "lucide-svelte";
     import NavbarBalance from "./NavbarBalance.svelte";
     import NavbarAvatar from "./NavbarAvatar.svelte";
+    import { page } from "$app/stores";
 
     import { onMount } from "svelte";
 
@@ -21,7 +22,9 @@
         : 'bg-white'}"
 >
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a class="font-bold text-xl" href="/">BeerShop</a>
+        <a class="font-bold text-xl" href="/shop/{$page.params.slug}"
+            >BeerShop</a
+        >
         <NavbarAvatar />
     </div>
 </div>

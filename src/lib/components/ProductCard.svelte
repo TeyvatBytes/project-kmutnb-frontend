@@ -1,10 +1,18 @@
 <script>
     import { Package2 } from "lucide-svelte";
+    import { Modal } from "./ui/modal";
+    import { Label } from "./ui/label";
+    import { Button } from "./ui/button";
+    import { Input } from "./ui/input";
+    import ProductBuyModal from "./ProductBuyModal.svelte";
 
-    let { product } = $props();
+    let { product, shop } = $props();
 </script>
 
-<a class="border rounded-lg group" href="#">
+<a
+    href="/shop/{shop.slug}/products/{product.id}"
+    class="border rounded-lg group"
+>
     <div
         class="bg-background h-40 w-full flex items-center justify-center text-sky-500 relative overflow-hidden"
     >
@@ -24,7 +32,7 @@
         {/if}
     </div>
     <div
-        class="p-2 flex gap-3 justify-between flex-col bg-accent/50 transition-colors group-hover:bg-accent"
+        class="p-2 flex gap-3 text-left justify-between flex-col bg-accent/50 transition-colors group-hover:bg-accent"
     >
         <div>{product.name}</div>
         <div class="flex justify-between">
@@ -36,7 +44,9 @@
 
             <div>
                 สต็อก
-                <span class="text-green-500 text-md">{product.stock}+</span>
+                <span class="text-green-500 text-md"
+                    >{product._count.product_stock}+</span
+                >
             </div>
         </div>
     </div>

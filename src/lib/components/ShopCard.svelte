@@ -2,6 +2,8 @@
     import { Separator } from "$lib/components/ui/separator";
     import { Star } from "lucide-svelte";
     import SpinningText from "$lib/components/ui/spinning-text/SpinningText.svelte";
+
+    let { shop } = $props();
 </script>
 
 <div class="border bg-accent rounded-lg p-5 overflow-hidden relative">
@@ -23,10 +25,10 @@
                 <div
                     class="text-xl font-bold text-sky-400 bg-sky-50 w-fit border rounded-lg p-1 px-2"
                 >
-                    ParadoxyShop888
+                    {shop.name}
                 </div>
                 <div class="text-muted-foreground">
-                    ร้านเราขาย sextoy คุณภาพสูงมาตลอด 8 ปี
+                    {shop.description}
                 </div>
             </div>
         </div>

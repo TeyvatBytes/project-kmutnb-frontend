@@ -5,12 +5,12 @@
 
     import * as Select from "$lib/components/ui/select";
     import ShopShow from "$lib/components/ShopShow.svelte";
-    import Ad from "$lib/components/Ad.svelte";
     import SpinningText from "$lib/components/ui/spinning-text/SpinningText.svelte";
+
+    const { data } = $props();
 </script>
 
 <div class="grid gap-10">
-    <ShopCard />
-    <ShopShow />
-    <Ad />
+    <ShopCard shop={data.shop} />
+    <ShopShow shop={data.shop} products={data.shop.products} />
 </div>
