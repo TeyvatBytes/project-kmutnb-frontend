@@ -64,7 +64,7 @@
                         <img
                             class="object-contain {method.class} rounded-lg aspect-[13/9]"
                             src={method.icon}
-                            width="120"
+                            width="80"
                             alt={method.name}
                         />
                         <div class="flex flex-auto flex-col justify-between">

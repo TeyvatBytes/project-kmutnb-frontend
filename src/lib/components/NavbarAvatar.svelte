@@ -20,7 +20,8 @@
                     alt="chanios"
                     width="30"
                 />
-                chanios
+                {$userStore.username} -
+                {$userStore.balance} บาท
                 <div class="text-muted-foreground">
                     <ChevronDown />
                 </div>
@@ -36,6 +37,10 @@
                 <DropdownMenu.Item>ออเดอร์</DropdownMenu.Item>
                 <DropdownMenu.Item onclick={logout} class="text-red-600"
                     >ออกจากระบบ</DropdownMenu.Item
+                >
+                <DropdownMenu.Separator />
+                <a href="/seller">
+                    <DropdownMenu.Item>ร้านของคุณ</DropdownMenu.Item></a
                 >
             </DropdownMenu.Group>
         </DropdownMenu.Content>

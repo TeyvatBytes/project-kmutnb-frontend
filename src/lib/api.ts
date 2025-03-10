@@ -50,3 +50,8 @@ export const getMe = async () => {
   userStore.set(user);
   return user;
 };
+
+export const getMyOrders = async () => {
+  const { data: orders } = await client.api.v1.users["@me"].orders.get();
+  return orders;
+};

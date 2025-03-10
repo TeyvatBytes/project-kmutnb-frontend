@@ -2,11 +2,15 @@
     import { Separator } from "$lib/components/ui/separator";
     import { Star } from "lucide-svelte";
     import SpinningText from "$lib/components/ui/spinning-text/SpinningText.svelte";
+    import { goto } from "$app/navigation";
 
-    let { shop } = $props();
+    let { shop, href = "" } = $props();
 </script>
 
-<div class="border bg-accent rounded-lg p-5 overflow-hidden relative">
+<button
+    onclick={() => goto(href)}
+    class="border bg-accent rounded-lg p-5 overflow-hidden relative w-full text-left"
+>
     <div class="absolute bottom-0 right-0 block lg:hidden">
         <SpinningText
             class="text-5xl font-extrabold text-muted-foreground"
@@ -54,4 +58,4 @@
             </div>
         </div>
     </div>
-</div>
+</button>

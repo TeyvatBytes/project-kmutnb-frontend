@@ -2,10 +2,10 @@
     import { DollarSign } from "lucide-svelte";
     import NavbarBalance from "./NavbarBalance.svelte";
     import NavbarAvatar from "./NavbarAvatar.svelte";
-    import { page } from "$app/stores";
 
     import { onMount } from "svelte";
 
+    let { title = "SellVat", href = "/" } = $props();
     let scrolled = $state(false);
     onMount(() => {
         const handleScroll = () => {
@@ -22,9 +22,7 @@
         : 'bg-white'}"
 >
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a class="font-bold text-xl" href="/shop/{$page.params.slug}"
-            >BeerShop</a
-        >
+        <a class="text-2xl font-bold text-gray-900" {href}>{title}</a>
         <NavbarAvatar />
     </div>
 </div>
