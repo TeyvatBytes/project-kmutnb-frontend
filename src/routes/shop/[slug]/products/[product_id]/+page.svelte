@@ -54,21 +54,34 @@
         <img src={data.shop.logo} width="50" class="rounded-lg" alt="" />
         <div class="font-bold text-2xl">{data.shop.name}</div>
     </a>
-    <div class="md:col-span-3 border rounded-lg p-5 flex flex-col gap-3">
-        <h1 class="text-2xl font-bold">{data.product.name}</h1>
+    <div class="md:col-span-3 border rounded-lg p-5 flex flex-col gap-10">
+        <img
+            src={data.product.image}
+            alt={data.product.name}
+            class="rounded-lg object-cover aspect-video"
+        />
+        <div>
+            <h1 class="text-2xl font-bold">{data.product.name}</h1>
 
-        <div class="text-xl">
-            ราคา <span class="text-blue-600 font-bold"
-                >{data.product.price.toFixed(2)}</span
-            > บาท
+            <div class="text-xl">
+                ราคา <span class="text-blue-600 font-bold"
+                    >{data.product.price.toFixed(2)}</span
+                > บาท
+            </div>
         </div>
         <Separator />
-
-        <Markdown
-            md={data.product.description}
-            {plugins}
-            class="text-md mb-2"
-        />
+        <div>
+            <div class="font-bold text-xl py-2">คำอธิบายสินค้า</div>
+            <Markdown
+                md={data.product.description}
+                {plugins}
+                class="text-md mb-2"
+            />
+        </div>
+        <Separator />
+        <div>
+            <div class="font-bold text-xl py-2">รีวิว</div>
+        </div>
     </div>
     <div
         class="md:col-span-2 border rounded-lg p-5 flex flex-col gap-3 justify-between h-fit"
