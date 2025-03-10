@@ -19,4 +19,4 @@ spec:
   tls:
     - hosts:
         - sellvat.com
-      secretName: tls-shop-secret
+      secretName: tls-shop-sellvat-secret
