@@ -5,6 +5,10 @@
 
     import * as Select from "$lib/components/ui/select";
     import ProductCard from "./ProductCard.svelte";
+    import ShopProductTab from "./ShopProductTab.svelte";
+    import ShopContactTab from "./ShopContactTab.svelte";
+    import ShopReviewTab from "./ShopReviewTab.svelte";
+    import ShopPolicyTab from "./ShopPolicyTab.svelte";
 
     // let products = [
     //     {
@@ -80,42 +84,50 @@
     //     },
     // ];
 
+    let tabs = [
+        {
+            id: "products",
+            name: "สินค้า",
+        },
+        {
+            id: "contact",
+            name: "ติดต่อ",
+        },
+        {
+            id: "review",
+            name: "รีวิว",
+        },
+        {
+            id: "policy",
+            name: "เงื่อนไข",
+        },
+    ];
+    let selectTab = $state("products");
     let { products, shop } = $props();
 </script>
 
 <div class="flex gap-10 text-md text-muted-foreground border-b-2 border-muted">
-    <button class="text-sky-500 border-b-2 border-sky-300 px-4">สินค้า</button>
-    <button class="hover:text-accent-foreground transition-colors"
-        >ติดต่อ</button
-    >
-    <button class="hover:text-accent-foreground transition-colors">รีวิว</button
-    >
-    <button class="hover:text-accent-foreground transition-colors"
-        >เงื่อนไข</button
-    >
-</div>
-<div class="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 w-full gap-5">
-    <Input class="p-6 md:col-span-2" placeholder="ค้นหาสินค้า..." />
-
-    <Select.Root type="single" class="h-full">
-        <Select.Trigger class="h-full">หมวดหมู่</Select.Trigger>
-        <Select.Content>
-            <Select.Item value="light">ทั้งหมด</Select.Item>
-            <Select.Item value="dark">เย็ดหี</Select.Item>
-            <Select.Item value="system">หี</Select.Item>
-        </Select.Content>
-    </Select.Root>
-
-    <Select.Root type="single" class="h-full">
-        <Select.Trigger class="h-full">เรียงโดย Default</Select.Trigger>
-        <Select.Content>
-            <Select.Item value="system">ยอดนิยม</Select.Item>
-            <Select.Item value="dark">จำนวนสต็อก</Select.Item>
-            <Select.Item value="light">วันที่ลง</Select.Item>
-        </Select.Content>
-    </Select.Root>
-
-    {#each products as product}
-        <ProductCard {shop} {product} />
+    {#each tabs as tab}
+        {#if tab.id === selectTab}
+            <button
+                class="text-sky-500 border-b-2 border-sky-300 px-4 transition-all"
+                >{tab.name}</button
+            >
+        {:else}
+            <button
+                onclick={() => (selectTab = tab.id)}
+                class="hover:text-accent-foreground border-b-2 border-transparent transition-all px-4"
+                >{tab.name}</button
+            >
+        {/if}
     {/each}
 </div>
+{#if selectTab === "products"}
+    <ShopProductTab {products} {shop} />
+{:else if selectTab === "contact"}
+    <ShopContactTab {shop} />
+{:else if selectTab === "review"}
+    <ShopReviewTab {shop} />
+{:else if selectTab === "policy"}
+    <ShopPolicyTab {shop} />
+{/if}

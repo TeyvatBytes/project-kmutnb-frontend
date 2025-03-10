@@ -4,6 +4,7 @@
     import { Button } from "$lib/components/ui/button";
     import Globe from "$lib/components/ui/globe/Globe.svelte";
     import Copyright from "$lib/components/Copyright.svelte";
+    import NavbarAvatar from "$lib/components/NavbarAvatar.svelte";
 
     let scrolled = false;
 
@@ -133,18 +134,7 @@
                 >
             </nav>
 
-            <div class="flex items-center gap-4">
-                <Button
-                    href="/login"
-                    variant="outline"
-                    class="border border-gray-300 text-gray-700 hover:bg-gray-50 text-sm"
-                    >เข้าสู่ระบบ</Button
-                >
-                <Button
-                    class="bg-gray-900 hover:bg-gray-800 text-white text-sm"
-                    href="/register">สมัครใช้งาน</Button
-                >
-            </div>
+            <NavbarAvatar />
         </div>
     </header>
 
@@ -165,10 +155,12 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <Button
+                            href="/login"
                             class="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3"
                             >เริ่มต้นใช้งานฟรี</Button
                         >
                         <Button
+                            href="/shop/demo"
                             variant="outline"
                             class="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3"
                             >ชมการสาธิต</Button

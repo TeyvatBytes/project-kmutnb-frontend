@@ -2,26 +2,23 @@
 <script>
     import { onMount } from "svelte";
     import { Button } from "$lib/components/ui/button";
+    import { login } from "$lib/api";
 
-    let email = "";
+    let username = "";
     let password = "";
     let rememberMe = false;
     let isLoading = false;
     let errorMessage = "";
 
     const handleSubmit = async () => {
-        if (!email || !password) {
+        if (!username || !password) {
             errorMessage = "กรุณากรอกอีเมลและรหัสผ่าน";
             return;
         }
 
         try {
             isLoading = true;
-            // Simulate API call
-            await new Promise((resolve) => setTimeout(resolve, 1000));
-
-            // Redirect to dashboard on success
-            window.location.href = "/dashboard";
+            await login({ username, password });
         } catch (error) {
             errorMessage = "เข้าสู่ระบบล้มเหลว กรุณาลองอีกครั้ง";
         } finally {
@@ -77,17 +74,17 @@
                         <!-- Email Field -->
                         <div class="space-y-2">
                             <label
-                                for="email"
+                                for="username"
                                 class="block text-sm font-medium text-slate-700 dark:text-slate-200"
                             >
-                                อีเมล
+                                username
                             </label>
                             <input
-                                type="email"
-                                id="email"
-                                bind:value={email}
+                                type="username"
+                                id="username"
+                                bind:value={username}
                                 class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
-                                placeholder="your@email.com"
+                                placeholder="username"
                                 required
                             />
                         </div>

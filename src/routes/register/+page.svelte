@@ -2,14 +2,12 @@
 <script>
     import { onMount } from "svelte";
     import { Button } from "$lib/components/ui/button";
+    import { register } from "$lib/api";
 
     let formData = {
-        firstName: "",
-        lastName: "",
-        email: "",
+        username: "",
         password: "",
         confirmPassword: "",
-        businessName: "",
         acceptTerms: false,
     };
 
@@ -19,10 +17,6 @@
 
     const validateForm = () => {
         errors = {};
-
-        if (!formData.firstName) errors.firstName = "กรุณากรอกชื่อ";
-        if (!formData.lastName) errors.lastName = "กรุณากรอกนามสกุล";
-
         if (!formData.email) {
             errors.email = "กรุณากรอกอีเมล";
         } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
@@ -40,9 +34,6 @@
         } else if (formData.password !== formData.confirmPassword) {
             errors.confirmPassword = "รหัสผ่านไม่ตรงกัน";
         }
-
-        if (!formData.businessName) errors.businessName = "กรุณากรอกชื่อธุรกิจ";
-
         if (!formData.acceptTerms) {
             errors.acceptTerms = "กรุณายอมรับข้อกำหนดและเงื่อนไข";
         }
@@ -53,16 +44,13 @@
     const handleSubmit = async () => {
         if (!validateForm()) {
             errorMessage = "กรุณากรอกข้อมูลให้ครบถ้วนและถูกต้อง";
+            toast.error(errorMessage);
             return;
         }
 
         try {
             isLoading = true;
-            // Simulate API call
-            await new Promise((resolve) => setTimeout(resolve, 1500));
-
-            // Redirect to dashboard on success
-            window.location.href = "/dashboard";
+            await register(formData);
         } catch (error) {
             errorMessage = "การสมัครสมาชิกล้มเหลว กรุณาลองอีกครั้ง";
         } finally {
@@ -123,54 +111,28 @@
                                 ข้อมูลส่วนตัว
                             </h2>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <!-- First Name Field -->
-                                <div class="space-y-2">
-                                    <label
-                                        for="firstName"
-                                        class="block text-sm font-medium text-slate-700 dark:text-slate-200"
+                            <div class="space-y-2">
+                                <label
+                                    for="username"
+                                    class="block text-sm font-medium text-slate-700 dark:text-slate-200"
+                                >
+                                    ชื่อผู้ใช้ <span class="text-red-500"
+                                        >*</span
                                     >
-                                        ชื่อ <span class="text-red-500">*</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="firstName"
-                                        bind:value={formData.firstName}
-                                        class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
-                                        placeholder="ชื่อจริง"
-                                        required
-                                    />
-                                    {#if errors.firstName}
-                                        <p class="text-red-500 text-xs mt-1">
-                                            {errors.firstName}
-                                        </p>
-                                    {/if}
-                                </div>
-
-                                <!-- Last Name Field -->
-                                <div class="space-y-2">
-                                    <label
-                                        for="lastName"
-                                        class="block text-sm font-medium text-slate-700 dark:text-slate-200"
-                                    >
-                                        นามสกุล <span class="text-red-500"
-                                            >*</span
-                                        >
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="lastName"
-                                        bind:value={formData.lastName}
-                                        class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
-                                        placeholder="นามสกุล"
-                                        required
-                                    />
-                                    {#if errors.lastName}
-                                        <p class="text-red-500 text-xs mt-1">
-                                            {errors.lastName}
-                                        </p>
-                                    {/if}
-                                </div>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="username"
+                                    bind:value={formData.username}
+                                    class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
+                                    placeholder="username"
+                                    required
+                                />
+                                {#if errors.username}
+                                    <p class="text-red-500 text-xs mt-1">
+                                        {errors.username}
+                                    </p>
+                                {/if}
                             </div>
 
                             <!-- Email Field -->
@@ -255,40 +217,6 @@
                                         </p>
                                     {/if}
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Business Information Section -->
-                        <div>
-                            <h2
-                                class="text-lg font-medium text-slate-900 dark:text-white mb-4"
-                            >
-                                ข้อมูลธุรกิจ
-                            </h2>
-
-                            <!-- Business Name Field -->
-                            <div class="space-y-2">
-                                <label
-                                    for="businessName"
-                                    class="block text-sm font-medium text-slate-700 dark:text-slate-200"
-                                >
-                                    ชื่อธุรกิจ <span class="text-red-500"
-                                        >*</span
-                                    >
-                                </label>
-                                <input
-                                    type="text"
-                                    id="businessName"
-                                    bind:value={formData.businessName}
-                                    class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
-                                    placeholder="ชื่อธุรกิจของคุณ"
-                                    required
-                                />
-                                {#if errors.businessName}
-                                    <p class="text-red-500 text-xs mt-1">
-                                        {errors.businessName}
-                                    </p>
-                                {/if}
                             </div>
                         </div>
 
