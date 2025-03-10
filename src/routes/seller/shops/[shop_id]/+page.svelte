@@ -1,4 +1,6 @@
 <script>
+    import { Input } from "$lib/components/ui/input";
+    import { Label } from "$lib/components/ui/label";
     import {
         ArrowLeft,
         Package,
@@ -8,6 +10,7 @@
         Tag,
         TrendingUp,
         Settings,
+        Link,
     } from "lucide-svelte";
 
     let { data } = $props();
@@ -30,6 +33,11 @@
         <h1 class="text-2xl font-bold">{data.shop.name}</h1>
     </div>
 
+    <div class="bg-white rounded-lg shadow p-6 flex items-center gap-4">
+        <Link class="size-10" />
+        <Label class="w-full">ลิ้งร้านของคุณ</Label>
+        <Input value="sellvat.com/shop/{data.shop.slug}/" />
+    </div>
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="bg-white rounded-lg shadow p-6 flex items-center gap-4">
