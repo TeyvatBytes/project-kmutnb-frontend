@@ -6,7 +6,7 @@ metadata:
     "cert-manager.io/cluster-issuer": "cf-teyvatsbyte-issuer-prod"
 spec:
   rules:
-    - host: shop.teyvatbytes.com
+    - host: sellvat.com
       http:
         paths:
           - path: /
@@ -18,5 +18,5 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - shop.teyvatbytes.com
+        - sellvat.com
       secretName: tls-shop-secret
