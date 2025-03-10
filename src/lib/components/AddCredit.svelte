@@ -95,7 +95,7 @@
         {:else}
             <img
                 src="https://promptparse-api.vercel.app/api/truewallet/0971051957/{amount}?message={encodeURIComponent(
-                    `เติมเครดิต SellVat ${amount} บาท`,
+                    `เติม SellVat ${amount} บาท`,
                 )}"
                 alt=""
             />
