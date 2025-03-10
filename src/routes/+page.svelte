@@ -169,7 +169,7 @@
                 </div>
                 <div class="w-full md:w-1/2">
                     <img
-                        src="https://files.catbox.moe/pgi95s.png"
+                        src="https://files.catbox.moe/2w7857.png"
                         alt="SellVat Dashboard"
                         class="rounded-lg shadow-sm w-full"
                     />
