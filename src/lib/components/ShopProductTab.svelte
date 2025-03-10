@@ -39,7 +39,7 @@
         </Select.Content>
     </Select.Root>
 
-    <Select.Root type="single" class="h-full">
+    <Select.Root type="single" class="h-full" disabled>
         <Select.Trigger class="h-full">เรียงโดย Default</Select.Trigger>
         <Select.Content>
             <Select.Item value="system">ยอดนิยม</Select.Item>

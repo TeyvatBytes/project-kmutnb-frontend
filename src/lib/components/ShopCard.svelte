@@ -14,14 +14,14 @@
     <div class="absolute bottom-0 right-0 block lg:hidden">
         <SpinningText
             class="text-5xl font-extrabold text-muted-foreground"
-            children="ParadoxyShop888 • Paradoxy • Sextoy •"
+            children="SellVat • Easy • Shop •"
         ></SpinningText>
     </div>
     <div class="lg:flex grid justify-between gap-10">
         <div class="flex gap-5">
             <img
-                src="https://github.com/ParaDoxy8k.png"
-                class="rounded-xl"
+                src={shop.logo || "https://github.com/ParaDoxy8k.png"}
+                class="rounded-xl aspect-square object-cover"
                 width="85"
                 alt=""
             />

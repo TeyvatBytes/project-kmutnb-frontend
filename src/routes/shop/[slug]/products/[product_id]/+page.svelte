@@ -77,7 +77,7 @@
 
         <div>
             <Label>จำนวนสินค้า</Label>
-            <Input type="number" bind:value={quantity} />
+            <Input type="number" bind:value={quantity} min="1" />
         </div>
 
         <div class="flex flex-col gap-3">
@@ -110,84 +110,71 @@
     </div>
 </div>
 
-<Modal bind:open={showBuyModel} class="p-4">
-    {#if loading}
-        <div class="w-full h-96 flex justify-center items-center">
-            <div
-                class="flex flex-auto flex-col justify-center items-center gap-3"
-            >
-                <LoaderCircle class="text-blue-600 size-20 animate-spin" />
-                กำลังทำรายการ
-            </div>
+<Modal bind:open={showBuyModel} {loading} class="p-4">
+    <div>
+        <div class="flex place-items-center px-4 pb-4 sm:pt-4">
+            <h2 class="text-2xl font-semibold">
+                ยืนยันการซื้อ {data.product.name}
+            </h2>
         </div>
-    {:else}
-        <div>
-            <div class="flex place-items-center px-4 pb-4 sm:pt-4">
-                <h2 class="text-2xl font-semibold">
-                    ยืนยันการซื้อ {data.product.name}
-                </h2>
+        <div class="px-4 pb-4 flex flex-col gap-5">
+            <div class="border rounded-lg p-3 gap-5 flex items-center">
+                <img
+                    src={data.product.image}
+                    class="rounded-lg"
+                    width="80"
+                    alt=""
+                />
+                <div class="flex flex-auto justify-between flex-col py-3">
+                    <div class="text-xl">
+                        {data.product.name}
+                    </div>
+                    <div class="text-blue-600 font-bold">
+                        ราคา {data.product.price} บาท
+                    </div>
+                </div>
+                <div class="px-4 font-bold">{quantity} ชิ้น</div>
             </div>
-            <div class="px-4 pb-4 flex flex-col gap-5">
-                <div class="border rounded-lg p-3 gap-5 flex items-center">
-                    <img
-                        src={data.product.image}
-                        class="rounded-lg"
-                        width="80"
-                        alt=""
-                    />
-                    <div class="flex flex-auto justify-between flex-col py-3">
-                        <div class="text-xl">
-                            {data.product.name}
-                        </div>
-                        <div class="text-blue-600 font-bold">
-                            ราคา {data.product.price} บาท
-                        </div>
-                    </div>
-                    <div class="px-4 font-bold">{quantity} ชิ้น</div>
-                </div>
-                <div class="flex flex-col gap-3">
-                    <div class="flex justify-between">
-                        <div>ค่าสินค้า({quantity} ชิ้น)</div>
-                        <div>
-                            {total_price.toFixed(2)} บาท
-                        </div>
-                    </div>
-                    <div class="flex justify-between">
-                        <div>ค่าธรรมเนียม 3%</div>
-                        <div>
-                            {fee.toFixed(2)} บาท
-                        </div>
-                    </div>
-                    <div class="flex justify-between">
-                        <div class="text-blue-600 font-bold text-xl">
-                            ทั้งหมด
-                        </div>
-                        <div class="text-blue-600 font-bold text-xl">
-                            {final_price.toFixed(2)} บาท
-                        </div>
+            <div class="flex flex-col gap-3">
+                <div class="flex justify-between">
+                    <div>ค่าสินค้า({quantity} ชิ้น)</div>
+                    <div>
+                        {total_price.toFixed(2)} บาท
                     </div>
                 </div>
+                <div class="flex justify-between">
+                    <div>ค่าธรรมเนียม 3%</div>
+                    <div>
+                        {fee.toFixed(2)} บาท
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <div class="text-blue-600 font-bold text-xl">ทั้งหมด</div>
+                    <div class="text-blue-600 font-bold text-xl">
+                        {final_price.toFixed(2)} บาท
+                    </div>
+                </div>
+            </div>
 
-                <div class="flex flex-col gap-2">
-                    <div
-                        class="p-6 rounded-lg text-sm text-gray-600 bg-gray-100 text-left items-center flex gap-3"
-                    >
-                        <ShieldAlert />
-                        <div>
-                            เมื่อคุณกดซื้อสินค้าคุณได้ยอมรับเงื่อนไขของ
-                            <a class="border-b-2" href="/">SellVat</a>
-                            และของ
-                            <a class="border-b-2" href="/">{data.shop.name}</a>
-                        </div>
+            <div class="flex flex-col gap-2">
+                <div
+                    class="p-6 rounded-lg text-sm text-gray-600 bg-gray-100 text-left items-center flex gap-3"
+                >
+                    <ShieldAlert />
+                    <div>
+                        เมื่อคุณกดซื้อสินค้าคุณได้ยอมรับเงื่อนไขของ
+                        <a class="border-b-2" href="/">SellVat</a>
+                        และของ
+                        <a class="border-b-2" href="/">{data.shop.name}</a>
                     </div>
-                    <Button
-                        onclick={buyProduct}
-                        type="submit"
-                        class="p-8 bg-blue-600 font-bold text-xl"
-                        >ยืนยันการสั่งซื้อ</Button
-                    >
                 </div>
+                <Button
+                    onclick={buyProduct}
+                    type="submit"
+                    class="p-8 bg-blue-600 font-bold text-xl"
+                    >ยืนยันการสั่งซื้อ</Button
+                >
             </div>
         </div>
-    {/if}
+    </div>
 </Modal>

@@ -6,6 +6,7 @@ import { get } from "svelte/store";
 import { goto } from "$app/navigation";
 
 export const client = treaty<any>(env["PUBLIC_BACKEND_URI"], {
+  fetcher: fetch,
   headers() {
     return {
       authorization: "Bearer " + get(tokenStore),

@@ -4,7 +4,6 @@
     import { Label } from "./ui/label";
     import { Button } from "./ui/button";
     import { Input } from "./ui/input";
-    import ProductBuyModal from "./ProductBuyModal.svelte";
 
     let { product, shop } = $props();
 </script>
