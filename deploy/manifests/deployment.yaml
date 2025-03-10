@@ -19,7 +19,7 @@ spec:
             - containerPort: 3000
           env:
             - name: PUBLIC_BACKEND_URI
-              value: "https://cms-shop-api.teyvatbytes.com/api/v1"
+              value: "https://shop-api.sellvat.com"
             - name: NODE_ENV
               value: "production"
           readinessProbe:
