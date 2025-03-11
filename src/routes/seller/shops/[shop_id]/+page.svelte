@@ -68,10 +68,12 @@
             <div class="flex gap-3 items-center text-xl font-bold">
                 <span class="text-blue-600"
                     >{data.shop.balance.toFixed(2)}฿</span
-                >บาท
+                >
             </div>
             <div class="text-xs text-primary/60">
-                ({ThaiBahtText(52)})
+                {data.shop.balance
+                    ? `(${ThaiBahtText(data.shop.balance)})`
+                    : ""}
             </div>
         </div>
 
