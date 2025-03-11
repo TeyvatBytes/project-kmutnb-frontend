@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
     import { Button } from "$lib/components/ui/button/index.js";
     import { Input } from "$lib/components/ui/input";
     import { Label } from "$lib/components/ui/label";
+    import { Modal } from "$lib/components/ui/modal/index.js";
     import {
         ArrowLeft,
         Package,
@@ -13,7 +14,10 @@
         Settings,
         Link,
         Wallet,
+        ShieldCheck,
+        Ghost,
     } from "lucide-svelte";
+    import { toast } from "svelte-sonner";
 
     let { data } = $props();
 
@@ -24,6 +28,20 @@
             currency: "THB",
             minimumFractionDigits: 2,
         }).format(amount);
+    }
+
+    let openWithdrawModal = $state(false);
+    let loadingWithdraw = $state(false);
+
+    function handleWithdraw(event: SubmitEvent) {
+        event.preventDefault();
+        loadingWithdraw = true;
+        // Simulate API call
+        setTimeout(() => {
+            loadingWithdraw = false;
+            openWithdrawModal = false;
+            toast.success("ส่งคำขอถอนเงินสำเร็จแล้ว");
+        }, 2000);
     }
 </script>
 
@@ -40,7 +58,9 @@
             <Wallet class="text-green-600" size={24} />
         </div>
         <Label class="w-full">ยอดเงินในร้านของคุณ</Label>
-        <Button class="bg-blue-600">ทำเริ่องถอนเงิน</Button>
+        <Button onclick={() => (openWithdrawModal = true)} class="bg-blue-600"
+            >ทำเริ่องถอนเงิน</Button
+        >
         <div class="flex gap-3">
             <span class="text-blue-600 font-bold"
                 >{data.shop.balance.toFixed(2)}</span
@@ -221,3 +241,29 @@
         {/if}
     </div>
 </div>
+
+<Modal bind:open={openWithdrawModal} loading={loadingWithdraw} class="p-4 px-8">
+    <div class="flex place-items-center sm:pt-4">
+        <h2 class="text-2xl font-semibold">ทำเริ่องถอนเงิน</h2>
+    </div>
+    <form onsubmit={handleWithdraw} class="py-4 flex flex-col gap-5">
+        <div>
+            คุณสามารถทำเรื่องได้เดือนละ 2 ครั้งและต้องรับทราบ <a
+                class="border-b text-gray-600"
+                href="/policy">เงื่อนไขการถอนเงิน</a
+            >
+        </div>
+        <div class="border rounded-lg p-5 flex gap-5 items-center">
+            <Ghost />
+            <div>
+                <Label>โควต้าเดือนนี้</Label>
+                <div>เหลือ <span class="text-blue-600">2</span> ครั้ง</div>
+            </div>
+        </div>
+        <div class="p-6 rounded-lg bg-green-100 flex gap-3">
+            <ShieldCheck />เราจะโอนเงินให้คุณภายใน 24 ชั่วโมง
+        </div>
+
+        <Button type="submit" class="bg-blue-600">ถอนเงิน</Button>
+    </form>
+</Modal>

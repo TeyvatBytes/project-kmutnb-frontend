@@ -5,6 +5,7 @@
     import { Input } from "$lib/components/ui/input";
     import { Label } from "$lib/components/ui/label";
     import { Modal } from "$lib/components/ui/modal";
+    import { Textarea } from "$lib/components/ui/textarea";
     import {
         ArrowLeft,
         Plus,
@@ -367,7 +368,7 @@
 
         <div class="flex flex-col gap-2">
             <Label>รายละเอียด *</Label>
-            <Input
+            <Textarea
                 placeholder="รายละเอียดสินค้า..."
                 bind:value={description}
                 required
