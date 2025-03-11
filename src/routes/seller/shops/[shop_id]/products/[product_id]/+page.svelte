@@ -231,7 +231,7 @@
             {#if data.stockData.stocks.length > 0}
                 <Button
                     variant="outline"
-                    on:click={exportStocks}
+                    onclick={exportStocks}
                     class="flex items-center gap-2"
                 >
                     <Clipboard size={16} />
@@ -240,7 +240,7 @@
             {/if}
 
             <Button
-                on:click={() => (showAddStockModal = true)}
+                onclick={() => (showAddStockModal = true)}
                 class="bg-blue-600 hover:bg-blue-700 flex items-center gap-2"
             >
                 <Plus size={16} />
@@ -250,7 +250,7 @@
             {#if selectedStocks.length > 0}
                 <Button
                     variant="destructive"
-                    on:click={() => (showDeleteSelectedModal = true)}
+                    onclick={() => (showDeleteSelectedModal = true)}
                     class="flex items-center gap-2"
                 >
                     <Trash2 size={16} />
@@ -272,7 +272,7 @@
                                     <input
                                         type="checkbox"
                                         bind:checked={selectAll}
-                                        on:change={handleToggleSelectAll}
+                                        onchange={handleToggleSelectAll}
                                         class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                                     />
                                 </div>
@@ -305,7 +305,7 @@
                                             checked={selectedStocks.includes(
                                                 stock.id,
                                             )}
-                                            on:change={() =>
+                                            onchange={() =>
                                                 handleToggleSelect(stock.id)}
                                             class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                                         />
@@ -331,7 +331,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm">
                                     <button
                                         class="text-blue-600 hover:text-blue-900 mr-3"
-                                        on:click={() =>
+                                        onclick={() =>
                                             copyToClipboard(stock.data)}
                                         title="คัดลอกข้อมูล"
                                     >
@@ -394,12 +394,12 @@
         <div class="flex justify-end gap-2 mt-4">
             <Button
                 variant="outline"
-                on:click={() => (showAddStockModal = false)}
+                onclick={() => (showAddStockModal = false)}
             >
                 ยกเลิก
             </Button>
             <Button
-                on:click={handleAddStock}
+                onclick={handleAddStock}
                 class="bg-blue-600 hover:bg-blue-700"
                 disabled={stockLines.length === 0}
             >
@@ -426,13 +426,13 @@
         <div class="flex justify-center gap-3 w-full mt-4">
             <Button
                 variant="outline"
-                on:click={() => (showDeleteSelectedModal = false)}
+                onclick={() => (showDeleteSelectedModal = false)}
                 class="flex-1"
             >
                 ยกเลิก
             </Button>
             <Button
-                on:click={handleDeleteSelected}
+                onclick={handleDeleteSelected}
                 class="bg-red-600 hover:bg-red-700 flex-1"
             >
                 ลบสต็อก

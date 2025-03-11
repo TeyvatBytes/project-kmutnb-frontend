@@ -1,4 +1,5 @@
 <script>
+    import { Button } from "$lib/components/ui/button/index.js";
     import { Input } from "$lib/components/ui/input";
     import { Label } from "$lib/components/ui/label";
     import {
@@ -11,6 +12,7 @@
         TrendingUp,
         Settings,
         Link,
+        Wallet,
     } from "lucide-svelte";
 
     let { data } = $props();
@@ -33,6 +35,18 @@
         <h1 class="text-2xl font-bold">{data.shop.name}</h1>
     </div>
 
+    <div class="bg-white rounded-lg shadow p-6 flex items-center gap-4">
+        <div class="rounded-full bg-green-100 p-3">
+            <Wallet class="text-green-600" size={24} />
+        </div>
+        <Label class="w-full">ยอดเงินในร้านของคุณ</Label>
+        <Button class="bg-blue-600">ทำเริ่องถอนเงิน</Button>
+        <div class="flex gap-3">
+            <span class="text-blue-600 font-bold"
+                >{data.shop.balance.toFixed(2)}</span
+            > บาท
+        </div>
+    </div>
     <div class="bg-white rounded-lg shadow p-6 flex items-center gap-4">
         <Link class="size-10" />
         <Label class="w-full">ลิ้งร้านของคุณ</Label>

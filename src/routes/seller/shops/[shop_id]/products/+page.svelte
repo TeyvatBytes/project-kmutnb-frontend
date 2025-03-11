@@ -171,10 +171,7 @@
             </a>
             <h1 class="text-2xl font-bold">สินค้าทั้งหมด</h1>
         </div>
-        <Button
-            on:click={openCreateModal}
-            class="bg-blue-600 hover:bg-blue-700"
-        >
+        <Button onclick={openCreateModal} class="bg-blue-600 hover:bg-blue-700">
             <Plus size={18} class="mr-2" />
             เพิ่มสินค้าใหม่
         </Button>
@@ -298,7 +295,7 @@
                                     <div class="flex space-x-2">
                                         <a
                                             href="/seller/shops/{data.shop
-                                                .id}/products/{product.id}/stock"
+                                                .id}/products/{product.id}"
                                             class="text-blue-600 hover:text-blue-900"
                                             title="จัดการสต็อก"
                                         >
@@ -306,7 +303,7 @@
                                         </a>
                                         <button
                                             class="text-gray-600 hover:text-gray-900"
-                                            on:click={() =>
+                                            onclick={() =>
                                                 openEditModal(product)}
                                             title="แก้ไขสินค้า"
                                         >
@@ -314,7 +311,7 @@
                                         </button>
                                         <button
                                             class="text-red-600 hover:text-red-900"
-                                            on:click={() =>
+                                            onclick={() =>
                                                 confirmDelete(product)}
                                             title="ลบสินค้า"
                                         >
@@ -395,12 +392,12 @@
         <div class="flex justify-end gap-2 mt-4">
             <Button
                 variant="outline"
-                on:click={() => (showProductModal = false)}
+                onclick={() => (showProductModal = false)}
             >
                 ยกเลิก
             </Button>
             <Button
-                on:click={handleSaveProduct}
+                onclick={handleSaveProduct}
                 class="bg-blue-600 hover:bg-blue-700"
                 disabled={!name || !description || price <= 0}
             >
@@ -425,13 +422,13 @@
         <div class="flex justify-center gap-3 w-full mt-4">
             <Button
                 variant="outline"
-                on:click={() => (showDeleteModal = false)}
+                onclick={() => (showDeleteModal = false)}
                 class="flex-1"
             >
                 ยกเลิก
             </Button>
             <Button
-                on:click={handleDeleteProduct}
+                onclick={handleDeleteProduct}
                 class="bg-red-600 hover:bg-red-700 flex-1"
             >
                 ลบสินค้า

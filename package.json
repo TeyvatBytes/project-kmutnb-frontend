@@ -33,6 +33,7 @@
 		"@sveltejs/adapter-node": "^5.2.12",
 		"cobe": "^0.6.3",
 		"lucide-svelte": "^0.477.0",
+		"monaco-editor": "^0.52.2",
 		"svelte-exmarkdown": "^4.0.3",
 		"svelte-persisted-store": "^0.12.0"
 	}
