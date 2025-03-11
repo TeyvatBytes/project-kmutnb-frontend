@@ -22,22 +22,22 @@
         {
             title: "จัดการสินค้า",
             desc: "บริหารคลังสินค้าได้ง่ายด้วยระบบที่ใช้งานง่าย ติดตามสต็อกและยอดขายได้แบบเรียลไทม์",
-            image: "https://placehold.co/400x240",
+            image: "https://files.catbox.moe/2jjnra.png",
         },
         {
             title: "รับชำระเงินออนไลน์",
             desc: "รองรับการชำระเงินหลายรูปแบบ ทั้งบัตรเครดิต, โอนเงิน, QR Payment และอื่นๆ",
-            image: "https://placehold.co/400x240",
+            image: "https://files.catbox.moe/znt21k.png",
         },
         {
             title: "วิเคราะห์ยอดขาย",
             desc: "ดูรายงานสรุปยอดขายและวิเคราะห์พฤติกรรมผู้ซื้อด้วยแดชบอร์ดที่เข้าใจง่าย",
-            image: "https://placehold.co/400x240",
+            image: "https://files.catbox.moe/9987kh.png",
         },
         {
             title: "การจัดส่งอัตโนมัติ",
             desc: "เชื่อมต่อกับระบบขนส่งหลักได้ทันที พิมพ์ใบส่งสินค้าและติดตามพัสดุได้ในคลิกเดียว",
-            image: "https://placehold.co/400x240",
+            image: "https://files.catbox.moe/j6dao0.png",
         },
     ];
 

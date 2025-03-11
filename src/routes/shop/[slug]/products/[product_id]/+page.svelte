@@ -40,7 +40,7 @@
     const plugins = [gfmPlugin()];
 
     let showBuyModel = $state(false);
-    let showBuySuccessModel = $state(false);
+    let showBuySuccessModel = $state(true);
 
     let loading = $state(false);
     async function buyProduct() {
