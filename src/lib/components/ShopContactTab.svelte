@@ -20,6 +20,7 @@
 ติดต่อเราได้ตลอด 24 ชั่วโมง ผ่านช่องทางออนไลน์ กรณีเร่งด่วนสามารถติดต่อผ่านเบอร์โทรศัพท์ในเวลาทำการได้ครับ`;
 </script>
 
-<div class="p-3 border rounded-xl">
+<div class="p-5 border rounded-xl">
+    <div class="text-2xl font-bold mb-2">ติดต่อเรา</div>
     <Markdown md={markdownContent} />
 </div>
