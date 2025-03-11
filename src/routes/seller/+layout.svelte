@@ -18,7 +18,7 @@
     });
 </script>
 
-<Navbar title="Sellvat - หน้าผู้ขาย" href="/seller" />
+<Navbar title="SellVat - หน้าผู้ขาย" href="/seller" />
 <div class="max-w-7xl mx-auto px-6 min-h-screen">
     {@render children()}
     <Copyright />

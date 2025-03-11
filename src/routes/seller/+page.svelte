@@ -1,6 +1,6 @@
 <script>
     import { userStore } from "$lib/store/auth";
-    import { DollarSign, Store } from "lucide-svelte";
+    import { DollarSign, MessageCircleQuestion, Store } from "lucide-svelte";
 </script>
 
 <div class="flex flex-col gap-3">
@@ -24,6 +24,16 @@
         >
             <div class="text-2xl font-bold">ตั้งค่าบัญชีการขาย</div>
             <DollarSign
+                class="absolute w-full h-full group-hover:scale-150 transition-all -rotate-6 text-gray-400"
+            />
+        </a>
+
+        <a
+            href="#"
+            class="relative col-span-2 border rounded-lg p-10 overflow-hidden h-48 group"
+        >
+            <div class="text-2xl font-bold">เรียนรู้การใช้งานระบบ</div>
+            <MessageCircleQuestion
                 class="absolute w-full h-full group-hover:scale-150 transition-all -rotate-6 text-gray-400"
             />
         </a>

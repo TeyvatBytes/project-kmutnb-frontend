@@ -21,7 +21,7 @@
                     width="30"
                 />
                 {$userStore.username} -
-                {$userStore.balance} บาท
+                {$userStore.balance.toFixed(2)} บาท
                 <div class="text-muted-foreground">
                     <ChevronDown />
                 </div>
