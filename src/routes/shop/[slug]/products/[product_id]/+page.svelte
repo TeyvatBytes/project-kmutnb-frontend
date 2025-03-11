@@ -96,10 +96,10 @@
                 class="text-md mb-2"
             />
         </div>
-        <Separator />
+        <!-- <Separator />
         <div>
             <div class="font-bold text-xl py-2">รีวิว</div>
-        </div>
+        </div> -->
     </div>
     <div
         class="md:col-span-2 border rounded-lg p-5 flex flex-col gap-3 justify-between h-fit"

@@ -166,7 +166,7 @@
                     </form>
 
                     <!-- Divider -->
-                    <div class="relative flex items-center mt-8">
+                    <!-- <div class="relative flex items-center mt-8">
                         <div
                             class="flex-grow border-t border-slate-300 dark:border-slate-600"
                         ></div>
@@ -177,10 +177,10 @@
                         <div
                             class="flex-grow border-t border-slate-300 dark:border-slate-600"
                         ></div>
-                    </div>
+                    </div> -->
 
                     <!-- Social Login Buttons -->
-                    <div class="grid grid-cols-2 gap-4 mt-6">
+                    <!-- <div class="grid grid-cols-2 gap-4 mt-6">
                         <button
                             class="flex items-center justify-center gap-2 py-3 px-4 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg shadow-sm hover:bg-slate-50 dark:hover:bg-slate-600 transition-colors"
                         >
@@ -226,7 +226,7 @@
                             </svg>
                             <span class="text-sm font-medium">Facebook</span>
                         </button>
-                    </div>
+                    </div> -->
 
                     <!-- Register Link -->
                     <div class="text-center mt-8">
