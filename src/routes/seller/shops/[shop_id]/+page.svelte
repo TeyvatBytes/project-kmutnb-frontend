@@ -18,6 +18,7 @@
         Ghost,
     } from "lucide-svelte";
     import { toast } from "svelte-sonner";
+    import ThaiBahtText from "thai-baht-text";
 
     let { data } = $props();
 
@@ -63,16 +64,22 @@
             <Wallet class="text-green-600" size={24} />
         </div>
         <Label class="w-full">ยอดเงินในร้านของคุณ</Label>
+        <div class="flex flex-col">
+            <div class="flex gap-3 items-center text-xl font-bold">
+                <span class="text-blue-600"
+                    >{data.shop.balance.toFixed(2)}฿</span
+                >บาท
+            </div>
+            <div class="text-xs text-primary/60">
+                ({ThaiBahtText(52)})
+            </div>
+        </div>
+
         <Button
             onclick={() => (openWithdrawModal = true)}
-            class="bg-blue-600 text-white dark:text-primary"
+            class="bg-blue-600 text-white p-6 dark:text-primary font-bold"
             >ทำเริ่องถอนเงิน</Button
         >
-        <div class="flex gap-3">
-            <span class="text-blue-600 font-bold"
-                >{data.shop.balance.toFixed(2)}</span
-            > บาท
-        </div>
     </div>
     <div
         class="bg-background border rounded-lg shadow p-6 flex items-center gap-4"
@@ -86,8 +93,8 @@
         <div
             class="bg-background border rounded-lg shadow p-6 flex items-center gap-4"
         >
-            <div class="rounded-full bg-green-100 p-3">
-                <DollarSign class="text-green-600" size={24} />
+            <div class="rounded-full bg-purple-100 p-3">
+                <DollarSign class="text-purple-600" size={24} />
             </div>
             <div>
                 <p class="text-sm text-gray-500">ยอดขายทั้งหมด</p>
@@ -112,8 +119,8 @@
         <div
             class="bg-background border rounded-lg shadow p-6 flex items-center gap-4"
         >
-            <div class="rounded-full bg-purple-100 p-3">
-                <Package class="text-purple-600" size={24} />
+            <div class="rounded-full bg-orange-100 p-3">
+                <Package class="text-orange-600" size={24} />
             </div>
             <div>
                 <p class="text-sm text-gray-500">สินค้าทั้งหมด</p>
@@ -259,13 +266,17 @@
     </div>
 </div>
 
-<Modal bind:open={openWithdrawModal} loading={loadingWithdraw} class="p-4 px-8">
+<Modal
+    bind:open={openWithdrawModal}
+    loading={loadingWithdraw}
+    class="p-4 lg:px-8"
+>
     <div class="flex place-items-center sm:pt-4">
         <h2 class="text-2xl font-semibold">ทำเริ่องถอนเงิน</h2>
     </div>
     <form onsubmit={handleWithdraw} class="py-4 flex flex-col gap-5">
         <div>
-            คุณสามารถทำเรื่องได้เดือนละ 2 ครั้งและต้องรับทราบ <a
+            คุณสามารถทำเรื่องถอนเงินได้เดือนละ 2 ครั้งและต้องรับทราบ <a
                 class="border-b text-gray-600"
                 href="/policy">เงื่อนไขการถอนเงิน</a
             >
@@ -287,6 +298,8 @@
             <ShieldCheck />เราจะโอนเงินให้คุณภายใน 24 ชั่วโมง
         </div>
 
-        <Button type="submit" class="bg-blue-600 text-white">ถอนเงิน</Button>
+        <Button type="submit" class="bg-blue-600 text-white p-6 font-bold"
+            >ถอนเงิน</Button
+        >
     </form>
 </Modal>

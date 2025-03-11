@@ -35,6 +35,7 @@
 		"lucide-svelte": "^0.477.0",
 		"monaco-editor": "^0.52.2",
 		"svelte-exmarkdown": "^4.0.3",
-		"svelte-persisted-store": "^0.12.0"
+		"svelte-persisted-store": "^0.12.0",
+		"thai-baht-text": "^2.0.5"
 	}
 }

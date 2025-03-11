@@ -46,7 +46,7 @@
     let step = $state(1);
 </script>
 
-<Modal bind:open class="p-4 px-8">
+<Modal bind:open class="p-4 lg:px-8">
     <div class="flex place-items-center sm:pt-4">
         <h2 class="text-2xl font-semibold">เพิ่มเครดิต</h2>
     </div>
@@ -93,8 +93,9 @@
                 placeholder="กรอกจำนวนเงิน"
                 type="number"
             />
-            <Button onclick={() => (step = 2)} class="bg-blue-600 p-6"
-                >เติมเครดิต</Button
+            <Button
+                onclick={() => (step = 2)}
+                class="bg-blue-600 p-6 text-white font-bold">เติมเครดิต</Button
             >
         {:else}
             <img
