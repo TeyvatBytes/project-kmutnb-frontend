@@ -33,7 +33,7 @@
             <DropdownMenu.Content>
                 <DropdownMenu.Group>
                     <DropdownMenu.GroupHeading
-                        >@chanios</DropdownMenu.GroupHeading
+                        >@{$userStore.username}</DropdownMenu.GroupHeading
                     >
                     <DropdownMenu.Separator />
                     <DropdownMenu.Item onclick={() => (showCreditModal = true)}
