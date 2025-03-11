@@ -166,7 +166,7 @@
         <div class="flex items-center gap-4">
             <a
                 href="/seller/shops/{data.shop.id}"
-                class="hover:bg-gray-100 p-2 rounded-full"
+                class="hover:bg-accent transition-colors p-2 rounded-full"
             >
                 <ArrowLeft size={20} />
             </a>
@@ -193,43 +193,43 @@
     </div>
 
     <!-- Product table -->
-    <div class="bg-white rounded-lg shadow overflow-hidden">
+    <div class="bg-background border rounded-lg shadow overflow-hidden">
         {#if filteredProducts.length > 0}
             <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+                <table class="min-w-full divide-y divide-border">
+                    <thead class="bg-background">
                         <tr>
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
                                 >รูปภาพ</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
                                 >ชื่อสินค้า</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
                                 >หมวดหมู่</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
                                 >ราคา</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
                                 >สต็อก</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
                                 >ยอดขาย</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
                                 >จัดการ</th
                             >
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody class="bg-background divide-y divide-border">
                         {#each filteredProducts as product}
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -245,48 +245,48 @@
                                         >
                                             <Package
                                                 size={16}
-                                                class="text-gray-500"
+                                                class="text-primary/40"
                                             />
                                         </div>
                                     {/if}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="font-medium text-gray-900">
+                                    <div class="font-medium text-primary">
                                         {product.name}
                                     </div>
                                     <div
-                                        class="text-sm text-gray-500 truncate max-w-xs"
+                                        class="text-sm text-primary/40 truncate max-w-xs"
                                     >
                                         {product.description}
                                     </div>
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-primary/40"
                                 >
                                     {product.category || "-"}
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-primary/40"
                                 >
                                     {formatCurrency(product.price)}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     {#if product._count && product._count.product_stock > 0}
                                         <span
-                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 dark:bg-green-950 dark:text-green-400 text-green-800"
                                         >
                                             {product._count.product_stock} ชิ้น
                                         </span>
                                     {:else}
                                         <span
-                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800"
+                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 dark:bg-red-950 dark:text-red-400 text-red-800"
                                         >
                                             สินค้าหมด
                                         </span>
                                     {/if}
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-primary/40"
                                 >
                                     {product._count ? product._count.order : 0} รายการ
                                 </td>
@@ -303,7 +303,7 @@
                                             <Package size={18} />
                                         </a>
                                         <button
-                                            class="text-gray-600 hover:text-gray-900"
+                                            class="text-gray-600 hover:text-primary"
                                             onclick={() =>
                                                 openEditModal(product)}
                                             title="แก้ไขสินค้า"
@@ -328,8 +328,8 @@
         {:else}
             <div class="py-12 text-center">
                 <Package size={48} class="mx-auto text-gray-400 mb-3" />
-                <h3 class="text-lg font-medium text-gray-900">ไม่พบสินค้า</h3>
-                <p class="mt-1 text-sm text-gray-500">
+                <h3 class="text-lg font-medium text-primary">ไม่พบสินค้า</h3>
+                <p class="mt-1 text-sm text-primary/40">
                     {searchQuery
                         ? "ไม่พบสินค้าที่ค้นหา ลองใช้คำค้นหาอื่น"
                         : 'ยังไม่มีสินค้าในร้านค้านี้ กดปุ่ม "เพิ่มสินค้าใหม่" เพื่อเริ่มขายสินค้า'}
@@ -411,11 +411,11 @@
 <!-- Delete Confirmation Modal -->
 <Modal bind:open={showDeleteModal} {loading} class="p-8 max-w-md">
     <div class="flex flex-col items-center text-center gap-4">
-        <div class="rounded-full bg-red-100 p-3 mb-2">
+        <div class="rounded-full bg-red-100 dark:bg-red-950 p-3 mb-2">
             <AlertTriangle size={24} class="text-red-600" />
         </div>
         <h2 class="text-xl font-semibold">ยืนยันการลบสินค้า</h2>
-        <p class="text-gray-500">
+        <p class="text-primary/40">
             คุณแน่ใจหรือไม่ว่าต้องการลบสินค้า "{productToDelete?.name}"?
             การดำเนินการนี้ไม่สามารถยกเลิกได้
         </p>

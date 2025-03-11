@@ -58,7 +58,7 @@
                         onclick={() => (selectedMethod = method.id)}
                         class="rounded-xl text-left flex p-5 gap-10 items-center {selectedMethod ===
                         method.id
-                            ? 'bg-blue-100'
+                            ? 'bg-blue-100 dark:bg-blue-950'
                             : 'hover:bg-accent'} transition-colors"
                     >
                         <img
@@ -69,7 +69,9 @@
                         />
                         <div class="flex flex-auto flex-col justify-between">
                             <div class="text-xl font-bold">{method.name}</div>
-                            <div class="text-gray-600">ค่าธรรมเนียม 5.00%</div>
+                            <div class="text-gray-600 dark:text-gray-500">
+                                ค่าธรรมเนียม 5.00%
+                            </div>
                         </div>
                         <div>
                             {#if selectedMethod === method.id}
@@ -79,7 +81,9 @@
                     </button>
                 {/each}
             </div>
-            <div class="p-6 rounded-lg bg-green-100 flex gap-3">
+            <div
+                class="p-6 rounded-lg bg-green-100 dark:bg-green-900 flex gap-3"
+            >
                 <ShieldCheck />เรารับประกันความปลอดภัยของข้อมูลของคุณ
             </div>
 

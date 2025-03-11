@@ -41,7 +41,7 @@
     <div class="flex items-center gap-4">
         <a
             href="/seller/shops/{data.shop.id}"
-            class="hover:bg-gray-100 p-2 rounded-full"
+            class="hover:bg-accent transition-colors p-2 rounded-full"
         >
             <ArrowLeft size={20} />
         </a>

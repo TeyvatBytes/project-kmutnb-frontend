@@ -26,6 +26,8 @@
 
     import Markdown from "svelte-exmarkdown";
     import { onMount } from "svelte";
+    import { client } from "$lib/api.js";
+    import { toast } from "svelte-sonner";
     const { data } = $props();
     let quantity = $state(1);
 
@@ -37,11 +39,13 @@
     let showBuyModel = $state(false);
 
     let loading = $state(false);
-    function buyProduct() {
+    async function buyProduct() {
         loading = true;
-        setTimeout(() => {
-            loading = false;
-        }, 2000);
+        const { data, error } = await client.api.v1.shops[
+            data.shop.id
+        ].products[data.product.id].buy({ quantity });
+        if (error) toast.error(error.value.error);
+        toast.success(`ซื้อสินค้าสำเร็จ`);
     }
 </script>
 

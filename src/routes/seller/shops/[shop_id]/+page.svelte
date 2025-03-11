@@ -47,18 +47,25 @@
 
 <div class="flex flex-col gap-5 mt-5">
     <div class="flex items-center gap-4">
-        <a href="/seller/shops" class="hover:bg-gray-100 p-2 rounded-full">
+        <a
+            href="/seller/shops"
+            class="hover:bg-accent transition-colors p-2 rounded-full"
+        >
             <ArrowLeft size={20} />
         </a>
         <h1 class="text-2xl font-bold">{data.shop.name}</h1>
     </div>
 
-    <div class="bg-white rounded-lg shadow p-6 flex items-center gap-4">
+    <div
+        class="bg-background border rounded-lg shadow p-6 flex items-center gap-4"
+    >
         <div class="rounded-full bg-green-100 p-3">
             <Wallet class="text-green-600" size={24} />
         </div>
         <Label class="w-full">ยอดเงินในร้านของคุณ</Label>
-        <Button onclick={() => (openWithdrawModal = true)} class="bg-blue-600"
+        <Button
+            onclick={() => (openWithdrawModal = true)}
+            class="bg-blue-600 text-white dark:text-primary"
             >ทำเริ่องถอนเงิน</Button
         >
         <div class="flex gap-3">
@@ -67,14 +74,18 @@
             > บาท
         </div>
     </div>
-    <div class="bg-white rounded-lg shadow p-6 flex items-center gap-4">
+    <div
+        class="bg-background border rounded-lg shadow p-6 flex items-center gap-4"
+    >
         <Link class="size-10" />
         <Label class="w-full">ลิ้งร้านของคุณ</Label>
         <Input value="sellvat.com/shop/{data.shop.slug}/" />
     </div>
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-white rounded-lg shadow p-6 flex items-center gap-4">
+        <div
+            class="bg-background border rounded-lg shadow p-6 flex items-center gap-4"
+        >
             <div class="rounded-full bg-green-100 p-3">
                 <DollarSign class="text-green-600" size={24} />
             </div>
@@ -86,7 +97,9 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-lg shadow p-6 flex items-center gap-4">
+        <div
+            class="bg-background border rounded-lg shadow p-6 flex items-center gap-4"
+        >
             <div class="rounded-full bg-blue-100 p-3">
                 <ShoppingBag class="text-blue-600" size={24} />
             </div>
@@ -96,7 +109,9 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-lg shadow p-6 flex items-center gap-4">
+        <div
+            class="bg-background border rounded-lg shadow p-6 flex items-center gap-4"
+        >
             <div class="rounded-full bg-purple-100 p-3">
                 <Package class="text-purple-600" size={24} />
             </div>
@@ -111,7 +126,7 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
         <a
             href="/seller/shops/{data.shop.id}/products"
-            class="bg-white rounded-lg shadow p-6 hover:bg-gray-50 transition-colors"
+            class="bg-background border rounded-lg shadow p-6 hover:bg-accent transition-colors"
         >
             <Tag size={24} class="mb-3 text-gray-700" />
             <h3 class="font-semibold">จัดการสินค้า</h3>
@@ -120,7 +135,7 @@
 
         <a
             href="/seller/shops/{data.shop.id}/orders"
-            class="bg-white rounded-lg shadow p-6 hover:bg-gray-50 transition-colors"
+            class="bg-background border rounded-lg shadow p-6 hover:bg-accent transition-colors"
         >
             <ShoppingBag size={24} class="mb-3 text-gray-700" />
             <h3 class="font-semibold">คำสั่งซื้อ</h3>
@@ -129,7 +144,7 @@
 
         <a
             href="/seller/shops/{data.shop.id}/analytics"
-            class="bg-white rounded-lg shadow p-6 hover:bg-gray-50 transition-colors"
+            class="bg-background border rounded-lg shadow p-6 hover:bg-accent transition-colors"
         >
             <TrendingUp size={24} class="mb-3 text-gray-700" />
             <h3 class="font-semibold">วิเคราะห์</h3>
@@ -138,7 +153,7 @@
 
         <a
             href="/seller/shops/{data.shop.id}/settings"
-            class="bg-white rounded-lg shadow p-6 hover:bg-gray-50 transition-colors"
+            class="bg-background border rounded-lg shadow p-6 hover:bg-accent transition-colors"
         >
             <Settings size={24} class="mb-3 text-gray-700" />
             <h3 class="font-semibold">ตั้งค่าร้านค้า</h3>
@@ -147,7 +162,7 @@
     </div>
 
     <!-- Recent Orders -->
-    <div class="bg-white rounded-lg shadow p-6 mt-4">
+    <div class="bg-background border rounded-lg shadow p-6 mt-4">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-lg font-semibold">คำสั่งซื้อล่าสุด</h2>
             <a
@@ -187,7 +202,9 @@
                             >
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody
+                        class="bg-background border divide-y divide-gray-200"
+                    >
                         {#each data.recentOrders as order}
                             <tr>
                                 <td
@@ -253,17 +270,23 @@
                 href="/policy">เงื่อนไขการถอนเงิน</a
             >
         </div>
-        <div class="border rounded-lg p-5 flex gap-5 items-center">
+        <div
+            class="border rounded-lg p-5 flex gap-5 items-center hover:bg-accent transition-colors"
+        >
             <Ghost />
             <div>
                 <Label>โควต้าเดือนนี้</Label>
-                <div>เหลือ <span class="text-blue-600">2</span> ครั้ง</div>
+                <div>
+                    เหลือ <span class="text-blue-600 font-bold">2</span> ครั้ง
+                </div>
             </div>
         </div>
-        <div class="p-6 rounded-lg bg-green-100 flex gap-3">
+        <div
+            class="p-6 rounded-lg bg-green-100 dark:bg-green-900 text-primary flex gap-3"
+        >
             <ShieldCheck />เราจะโอนเงินให้คุณภายใน 24 ชั่วโมง
         </div>
 
-        <Button type="submit" class="bg-blue-600">ถอนเงิน</Button>
+        <Button type="submit" class="bg-blue-600 text-white">ถอนเงิน</Button>
     </form>
 </Modal>

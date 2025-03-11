@@ -18,11 +18,11 @@
 
 <div
     class="py-4 w-full transition-all duration-300 sticky top-0 z-50 {scrolled
-        ? 'bg-white shadow-sm'
-        : 'bg-white'}"
+        ? 'bg-background shadow-sm'
+        : 'bg-background'}"
 >
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a class="text-2xl font-bold text-gray-900" {href}>{title}</a>
+        <a class="text-2xl font-bold text-primary" {href}>{title}</a>
         <NavbarAvatar />
     </div>
 </div>

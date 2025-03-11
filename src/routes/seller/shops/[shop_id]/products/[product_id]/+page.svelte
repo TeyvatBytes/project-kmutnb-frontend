@@ -146,7 +146,7 @@
     <div class="flex items-center gap-4">
         <a
             href="/seller/shops/{data.shop.id}/products"
-            class="hover:bg-gray-100 p-2 rounded-full"
+            class="hover:bg-accent transition-colors p-2 rounded-full"
         >
             <ArrowLeft size={20} />
         </a>
@@ -155,7 +155,7 @@
 
     <!-- Product info card -->
     <div
-        class="bg-white rounded-lg shadow p-6 grid grid-cols-1 md:grid-cols-3 gap-6"
+        class="bg-background border rounded-lg shadow p-6 grid grid-cols-1 md:grid-cols-3 gap-6"
     >
         <div class="md:col-span-1">
             {#if data.product.image}
@@ -175,11 +175,11 @@
 
         <div class="md:col-span-2">
             <h2 class="text-2xl font-bold">{data.product.name}</h2>
-            <p class="text-gray-500 mt-2">{data.product.description}</p>
+            <p class="text-primary mt-2">{data.product.description}</p>
 
             <div class="mt-4 grid grid-cols-2 gap-4">
                 <div>
-                    <p class="text-sm text-gray-500">ราคา</p>
+                    <p class="text-sm text-primary">ราคา</p>
                     <p class="font-semibold text-lg">
                         {new Intl.NumberFormat("th-TH", {
                             style: "currency",
@@ -189,7 +189,7 @@
                 </div>
 
                 <div>
-                    <p class="text-sm text-gray-500">หมวดหมู่</p>
+                    <p class="text-sm text-primary">หมวดหมู่</p>
                     <p class="font-semibold">
                         {#if data.product.category}
                             <span
@@ -205,14 +205,14 @@
                 </div>
 
                 <div>
-                    <p class="text-sm text-gray-500">จำนวนที่ขายแล้ว</p>
+                    <p class="text-sm text-primary">จำนวนที่ขายแล้ว</p>
                     <p class="font-semibold">
                         {data.product._count?.order || 0} รายการ
                     </p>
                 </div>
 
                 <div>
-                    <p class="text-sm text-gray-500">สต็อกที่เหลือ</p>
+                    <p class="text-sm text-primary">สต็อกที่เหลือ</p>
                     <p class="font-semibold">
                         {data.stockData.stockCount} ชิ้น
                     </p>
@@ -241,7 +241,7 @@
 
             <Button
                 onclick={() => (showAddStockModal = true)}
-                class="bg-blue-600 hover:bg-blue-700 flex items-center gap-2"
+                class="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-white dark:text-primary"
             >
                 <Plus size={16} />
                 เพิ่มสต็อก
@@ -261,7 +261,7 @@
     </div>
 
     <!-- Stock table -->
-    <div class="bg-white rounded-lg shadow overflow-hidden">
+    <div class="bg-background border rounded-lg shadow overflow-hidden">
         {#if data.stockData.stocks.length > 0}
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
@@ -278,24 +278,26 @@
                                 </div>
                             </th>
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary uppercase tracking-wider"
                                 >รหัสสต็อก</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary uppercase tracking-wider"
                                 >ข้อมูลสินค้า</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary uppercase tracking-wider"
                                 >สร้างเมื่อ</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary uppercase tracking-wider"
                                 >การจัดการ</th
                             >
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody
+                        class="bg-background border divide-y divide-gray-200"
+                    >
                         {#each data.stockData.stocks as stock}
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -312,7 +314,7 @@
                                     </div>
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-primary"
                                 >
                                     #{stock.id}
                                 </td>
@@ -324,7 +326,7 @@
                                     </div>
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-primary"
                                 >
                                     {formatDate(stock.createdAt)}
                                 </td>
@@ -346,10 +348,10 @@
         {:else}
             <div class="py-12 text-center">
                 <Package size={48} class="mx-auto text-gray-400 mb-3" />
-                <h3 class="text-lg font-medium text-gray-900">
+                <h3 class="text-lg font-medium text-primary">
                     ไม่มีสต็อกสินค้า
                 </h3>
-                <p class="mt-1 text-sm text-gray-500">
+                <p class="mt-1 text-sm text-primary">
                     กดปุ่ม "เพิ่มสต็อก" เพื่อเพิ่มสต็อกใหม่
                 </p>
             </div>
@@ -386,7 +388,7 @@
                 rows={10}
                 class="font-mono"
             />
-            <p class="text-sm text-gray-500">
+            <p class="text-sm text-primary">
                 {stockLines.length} รายการที่จะเพิ่ม
             </p>
         </div>
@@ -400,7 +402,7 @@
             </Button>
             <Button
                 onclick={handleAddStock}
-                class="bg-blue-600 hover:bg-blue-700"
+                class="bg-blue-600 hover:bg-blue-700 text-white dark:text-primary"
                 disabled={stockLines.length === 0}
             >
                 เพิ่มสต็อก {stockLines.length > 0
@@ -418,7 +420,7 @@
             <AlertTriangle size={24} class="text-red-600" />
         </div>
         <h2 class="text-xl font-semibold">ยืนยันการลบสต็อก</h2>
-        <p class="text-gray-500">
+        <p class="text-primary">
             คุณแน่ใจหรือไม่ว่าต้องการลบสต็อกที่เลือก {selectedStocks.length} รายการ?
             การดำเนินการนี้ไม่สามารถยกเลิกได้
         </p>

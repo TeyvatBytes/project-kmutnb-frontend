@@ -1,4 +1,5 @@
 <script>
+  import { ModeWatcher } from "mode-watcher";
 
 
   import { Toaster } from "$lib/components/ui/sonner";
@@ -8,4 +9,5 @@
 
 <Toaster />
 
+<ModeWatcher />
 {@render children()}
