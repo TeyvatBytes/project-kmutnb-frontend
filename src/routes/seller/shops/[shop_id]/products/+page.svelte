@@ -200,31 +200,31 @@
                     <thead class="bg-background">
                         <tr>
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/50 uppercase tracking-wider"
                                 >รูปภาพ</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/50 uppercase tracking-wider"
                                 >ชื่อสินค้า</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/50 uppercase tracking-wider"
                                 >หมวดหมู่</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/50 uppercase tracking-wider"
                                 >ราคา</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/50 uppercase tracking-wider"
                                 >สต็อก</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/50 uppercase tracking-wider"
                                 >ยอดขาย</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-primary/40 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-primary/50 uppercase tracking-wider"
                                 >จัดการ</th
                             >
                         </tr>
@@ -245,7 +245,7 @@
                                         >
                                             <Package
                                                 size={16}
-                                                class="text-primary/40"
+                                                class="text-primary/50"
                                             />
                                         </div>
                                     {/if}
@@ -255,18 +255,18 @@
                                         {product.name}
                                     </div>
                                     <div
-                                        class="text-sm text-primary/40 truncate max-w-xs"
+                                        class="text-sm text-primary/50 truncate max-w-xs"
                                     >
                                         {product.description}
                                     </div>
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-primary/40"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-primary/50"
                                 >
                                     {product.category || "-"}
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-primary/40"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-primary/50"
                                 >
                                     {formatCurrency(product.price)}
                                 </td>
@@ -286,7 +286,7 @@
                                     {/if}
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-primary/40"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-primary/50"
                                 >
                                     {product._count ? product._count.order : 0} รายการ
                                 </td>
@@ -329,7 +329,7 @@
             <div class="py-12 text-center">
                 <Package size={48} class="mx-auto text-gray-400 mb-3" />
                 <h3 class="text-lg font-medium text-primary">ไม่พบสินค้า</h3>
-                <p class="mt-1 text-sm text-primary/40">
+                <p class="mt-1 text-sm text-primary/50">
                     {searchQuery
                         ? "ไม่พบสินค้าที่ค้นหา ลองใช้คำค้นหาอื่น"
                         : 'ยังไม่มีสินค้าในร้านค้านี้ กดปุ่ม "เพิ่มสินค้าใหม่" เพื่อเริ่มขายสินค้า'}
@@ -415,7 +415,7 @@
             <AlertTriangle size={24} class="text-red-600" />
         </div>
         <h2 class="text-xl font-semibold">ยืนยันการลบสินค้า</h2>
-        <p class="text-primary/40">
+        <p class="text-primary/50">
             คุณแน่ใจหรือไม่ว่าต้องการลบสินค้า "{productToDelete?.name}"?
             การดำเนินการนี้ไม่สามารถยกเลิกได้
         </p>
