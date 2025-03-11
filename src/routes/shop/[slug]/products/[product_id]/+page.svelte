@@ -1,6 +1,8 @@
 <script>
     import {
         ArrowLeft,
+        Box,
+        Check,
         ChevronsLeft,
         ChevronsUp,
         CircleAlert,
@@ -28,6 +30,7 @@
     import { onMount } from "svelte";
     import { client } from "$lib/api.js";
     import { toast } from "svelte-sonner";
+    import { goto } from "$app/navigation";
     const { data } = $props();
     let quantity = $state(1);
 
@@ -37,15 +40,26 @@
     const plugins = [gfmPlugin()];
 
     let showBuyModel = $state(false);
+    let showBuySuccessModel = $state(false);
 
     let loading = $state(false);
     async function buyProduct() {
         loading = true;
-        const { data, error } = await client.api.v1.shops[
-            data.shop.id
-        ].products[data.product.id].buy({ quantity });
-        if (error) toast.error(error.value.error);
-        toast.success(`ซื้อสินค้าสำเร็จ`);
+        try {
+            const { data: buyData, error } = await client.api.v1.shops[
+                data.shop.id
+            ].products[data.product.id].buy.post({ quantity });
+            if (error) return toast.error(error.value.error);
+
+            toast.success(`ซื้อสินค้าสำเร็จ`);
+            showBuySuccessModel = true;
+        } catch (e) {
+            console.error(e);
+            toast.error("เกิดข้อผิดพลาดในการซื้อสินค้า");
+        } finally {
+            showBuyModel = false;
+            loading = false;
+        }
     }
 </script>
 
@@ -192,6 +206,23 @@
                     >ยืนยันการสั่งซื้อ</Button
                 >
             </div>
+        </div>
+    </div>
+</Modal>
+
+<Modal bind:open={showBuySuccessModel} {loading} class="p-4">
+    <div class="flex flex-col items-center text-center gap-4 pt-4">
+        <div class="rounded-full bg-green-100 dark:bg-green-950 p-3 mb-2">
+            <Check size={24} class="text-green-600" />
+        </div>
+        <h2 class="text-xl font-semibold">ซื้อสินค้าสำเร็จแล้ว</h2>
+        <p class="text-primary/60">เราได้จัดส่งสินค้าไปยังออเดอร์ของคุณแล้ว</p>
+
+        <div class="flex flex-col justify-center gap-3 w-full mt-4">
+            <Button
+                onclick={() => goto("/@me/orders")}
+                class="bg-blue-600 p-6 text-md font-bold">ดูออเดอร์</Button
+            >
         </div>
     </div>
 </Modal>
