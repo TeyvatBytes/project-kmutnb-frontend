@@ -237,7 +237,7 @@
         {#if filteredOrders.length > 0}
             <Button
                 variant="outline"
-                on:click={exportOrdersCSV}
+                onclick={exportOrdersCSV}
                 class="flex items-center gap-2"
             >
                 <Download size={16} />
@@ -332,7 +332,7 @@
                                 >
                                     <button
                                         class="text-blue-600 hover:text-blue-900"
-                                        on:click={() => openOrderDetails(order)}
+                                        onclick={() => openOrderDetails(order)}
                                         title="ดูรายละเอียด"
                                     >
                                         <Eye size={18} />
@@ -437,7 +437,7 @@
             ข้อมูลสินค้า
             <button
                 class="text-blue-600 hover:text-blue-900 ml-2"
-                on:click={() => copyToClipboard(currentOrder.data)}
+                onclick={() => copyToClipboard(currentOrder.data)}
                 title="คัดลอกข้อมูล"
             >
                 <Clipboard size={16} />
@@ -449,9 +449,7 @@
         </div>
 
         <div class="flex justify-end">
-            <Button on:click={() => (showOrderDetailsModal = false)}>
-                ปิด
-            </Button>
+            <Button onclick={() => (showOrderDetailsModal = false)}>ปิด</Button>
         </div>
     {/if}
 </Modal>
