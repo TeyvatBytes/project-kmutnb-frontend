@@ -3,6 +3,7 @@
     import { onMount } from "svelte";
     import { Button } from "$lib/components/ui/button";
     import { register } from "$lib/api";
+    import Copyright from "$lib/components/Copyright.svelte";
 
     let formData = {
         username: "",
@@ -65,12 +66,7 @@
     <!-- Header with Logo -->
     <header class="py-4 px-6">
         <div class="max-w-7xl mx-auto">
-            <a
-                href="/"
-                class="text-3xl font-extrabold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent"
-            >
-                SellVat
-            </a>
+            <a href="/" class="text-3xl font-extrabold"> SellVat </a>
         </div>
     </header>
 
@@ -78,19 +74,16 @@
     <main class="flex-1 flex items-center justify-center px-6 py-12">
         <div class="w-full max-w-2xl">
             <!-- Card -->
+
             <div
-                class="bg-white dark:bg-slate-800 rounded-xl shadow-xl overflow-hidden"
+                class="bg-background dark:bg-slate-800 rounded-xl shadow-xl overflow-hidden"
             >
                 <!-- Form Header -->
-                <div class="p-6 bg-gradient-to-r from-purple-600 to-blue-500">
-                    <h1 class="text-2xl font-bold text-white">สมัครสมาชิก</h1>
-                    <p class="text-purple-100 mt-2">
-                        เริ่มต้นธุรกิจของคุณกับ SellVat
-                    </p>
-                </div>
-
-                <!-- Form Body -->
                 <div class="p-6">
+                    <h1 class="text-2xl font-bold text-primary">สมัครสมาชิก</h1>
+                </div>
+                <!-- Form Body -->
+                <div class="px-6">
                     {#if errorMessage}
                         <div
                             class="bg-red-100 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded-lg mb-4"
@@ -105,12 +98,6 @@
                     >
                         <!-- Personal Information Section -->
                         <div>
-                            <h2
-                                class="text-lg font-medium text-slate-900 dark:text-white mb-4"
-                            >
-                                ข้อมูลส่วนตัว
-                            </h2>
-
                             <div class="space-y-2">
                                 <label
                                     for="username"
@@ -124,7 +111,7 @@
                                     type="text"
                                     id="username"
                                     bind:value={formData.username}
-                                    class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
+                                    class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
                                     placeholder="username"
                                     required
                                 />
@@ -147,7 +134,7 @@
                                     type="email"
                                     id="email"
                                     bind:value={formData.email}
-                                    class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
+                                    class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
                                     placeholder="your@email.com"
                                     required
                                 />
@@ -161,12 +148,6 @@
 
                         <!-- Account Information Section -->
                         <div>
-                            <h2
-                                class="text-lg font-medium text-slate-900 dark:text-white mb-4"
-                            >
-                                ข้อมูลบัญชี
-                            </h2>
-
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <!-- Password Field -->
                                 <div class="space-y-2">
@@ -182,7 +163,7 @@
                                         type="password"
                                         id="password"
                                         bind:value={formData.password}
-                                        class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
+                                        class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
                                         placeholder="••••••••"
                                         required
                                     />
@@ -207,7 +188,7 @@
                                         type="password"
                                         id="confirmPassword"
                                         bind:value={formData.confirmPassword}
-                                        class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
+                                        class="block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
                                         placeholder="••••••••"
                                         required
                                     />
@@ -228,7 +209,7 @@
                                         id="acceptTerms"
                                         type="checkbox"
                                         bind:checked={formData.acceptTerms}
-                                        class="h-4 w-4 text-purple-600 dark:text-purple-400 focus:ring-purple-500 dark:focus:ring-purple-400 border-slate-300 dark:border-slate-600 rounded"
+                                        class="h-4 w-4 text-blue-600 dark:text-blue-400 focus:ring-blue-500 dark:focus:ring-blue-400 border-slate-300 dark:border-slate-600 rounded"
                                         required
                                     />
                                 </div>
@@ -239,13 +220,13 @@
                                     >
                                         ฉันยอมรับ <a
                                             href="/terms"
-                                            class="text-purple-600 dark:text-purple-400 hover:underline"
+                                            class="text-blue-600 dark:text-blue-400 hover:underline"
                                             >ข้อกำหนดการใช้งาน</a
                                         >
                                         และ
                                         <a
                                             href="/privacy"
-                                            class="text-purple-600 dark:text-purple-400 hover:underline"
+                                            class="text-blue-600 dark:text-blue-400 hover:underline"
                                             >นโยบายความเป็นส่วนตัว</a
                                         >
                                     </label>
@@ -261,7 +242,7 @@
                         <!-- Submit Button -->
                         <Button
                             type="submit"
-                            class="w-full py-3 mt-6 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-medium rounded-lg text-center transition-all shadow-md hover:shadow-lg"
+                            class="w-full py-3 mt-6 bg-blue-600 font-bold"
                             disabled={isLoading}
                         >
                             {#if isLoading}
@@ -293,12 +274,12 @@
                     </form>
 
                     <!-- Login Link -->
-                    <div class="text-center mt-8">
+                    <div class="text-center my-4">
                         <p class="text-slate-600 dark:text-slate-400">
                             มีบัญชีอยู่แล้ว?
                             <a
                                 href="/login"
-                                class="text-purple-600 dark:text-purple-400 font-medium hover:text-purple-500 dark:hover:text-purple-300"
+                                class="text-blue-600 dark:text-blue-400 font-medium hover:text-blue-500 dark:hover:text-blue-300"
                             >
                                 เข้าสู่ระบบ
                             </a>
@@ -331,6 +312,7 @@
                     >
                 </p>
             </div>
+            <Copyright />
         </div>
     </main>
 </div>

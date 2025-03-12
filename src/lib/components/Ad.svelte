@@ -18,7 +18,7 @@
                     ระบบร้านค้าออนไลน์ที่ใช้งานง่าย
                 </p>
             </div>
-            <Button class="text-xl p-6 px-14" href="/seller"
+            <Button class="text-xl p-7 px-14 font-bold" href="/seller"
                 >เริ่มเป็นคนขายเลย!</Button
             >
         </div>

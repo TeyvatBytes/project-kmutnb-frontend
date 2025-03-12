@@ -109,7 +109,8 @@
             : 'bg-white'}"
     >
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold text-gray-900">SellVat</a>
+            <a href="/" class="text-3xl font-extrabold text-gray-900">SellVat</a
+            >
 
             <nav class="hidden md:flex gap-8 text-sm items-center">
                 <a

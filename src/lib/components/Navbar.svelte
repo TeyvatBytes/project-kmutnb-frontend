@@ -22,7 +22,7 @@
         : 'bg-background'}"
 >
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a class="text-2xl font-bold text-primary" {href}>{title}</a>
+        <a class="text-3xl font-extrabold text-primary" {href}>{title}</a>
         <NavbarAvatar />
     </div>
 </div>
