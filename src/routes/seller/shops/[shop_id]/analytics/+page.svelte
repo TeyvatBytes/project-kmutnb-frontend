@@ -203,21 +203,21 @@
     <div class="flex space-x-2 bg-white rounded-lg shadow p-1 w-fit">
         <Button
             variant={timePeriod === "week" ? "default" : "ghost"}
-            on:click={() => changeTimePeriod("week")}
+            onclick={() => changeTimePeriod("week")}
             class={timePeriod === "week" ? "bg-blue-600" : ""}
         >
             7 วัน
         </Button>
         <Button
             variant={timePeriod === "month" ? "default" : "ghost"}
-            on:click={() => changeTimePeriod("month")}
+            onclick={() => changeTimePeriod("month")}
             class={timePeriod === "month" ? "bg-blue-600" : ""}
         >
             30 วัน
         </Button>
         <Button
             variant={timePeriod === "year" ? "default" : "ghost"}
-            on:click={() => changeTimePeriod("year")}
+            onclick={() => changeTimePeriod("year")}
             class={timePeriod === "year" ? "bg-blue-600" : ""}
         >
             ปีนี้
