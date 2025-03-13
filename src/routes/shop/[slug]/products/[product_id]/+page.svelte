@@ -47,10 +47,12 @@
     async function buyProduct() {
         loading = true;
         try {
-            if (!$tokenStore)
+            if (!$tokenStore) {
+                toast.warning("กรุณาเข้าสู่ระบบเพื่อซื้อสินค้า");
                 return goto(
                     `/login?returnUrl=${encodeURIComponent(window.location.pathname)}`,
                 );
+            }
             const { data: buyData, error } = await client.api.v1.shops[
                 data.shop.id
             ].products[data.product.id].buy.post({ quantity });
