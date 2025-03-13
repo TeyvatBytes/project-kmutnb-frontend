@@ -95,6 +95,7 @@
     <meta property="og:image" content={data.product.image} />
     <meta property="og:image:alt" content={data.product.name} />
 
+    <meta name="twitter:card" content="summary_large_image" />
     <meta
         name="twitter:title"
         content="{data.product.name} | {data.shop.name}"
