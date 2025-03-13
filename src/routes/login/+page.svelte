@@ -4,6 +4,8 @@
     import { Button } from "$lib/components/ui/button";
     import { login } from "$lib/api";
     import Copyright from "$lib/components/Copyright.svelte";
+    import { goto } from "$app/navigation";
+    import { page } from "$app/state";
 
     let username = "";
     let password = "";
@@ -20,6 +22,7 @@
         try {
             isLoading = true;
             await login({ username, password });
+            goto(page.url.searchParams.get("returnUrl") || "/");
         } catch (error) {
             errorMessage = "เข้าสู่ระบบล้มเหลว กรุณาลองอีกครั้ง";
         } finally {

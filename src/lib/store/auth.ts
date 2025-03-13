@@ -5,4 +5,3 @@ import { writable } from "svelte/store";
 // Second param is the initial value.
 export const tokenStore = persisted("token", null);
 export const userStore = persisted("user", null);
-export const authRedirect = writable("/");

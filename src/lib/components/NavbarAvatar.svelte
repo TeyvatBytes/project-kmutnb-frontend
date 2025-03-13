@@ -7,6 +7,7 @@
     import { logout } from "$lib/api";
     import { userStore } from "$lib/store/auth";
     import ModeSwitchButton from "./ModeSwitchButton.svelte";
+    import { page } from "$app/state";
 
     let showCreditModal = $state(false);
 </script>
@@ -55,10 +56,14 @@
         <AddCredit bind:open={showCreditModal} />
     {:else}
         <div class="flex gap-4 items-center">
-            <Button href="/login" variant="outline" class="border text-sm"
-                >เข้าสู่ระบบ</Button
+            <Button
+                href="/login?returnUrl={encodeURIComponent(page.url.href)}"
+                variant="outline"
+                class="border text-sm">เข้าสู่ระบบ</Button
             >
-            <Button class="text-primary-foreground text-sm" href="/register"
+            <Button
+                class="text-primary-foreground text-sm"
+                href="/register?returnUrl={encodeURIComponent(page.url.href)}"
                 >สมัครใช้งาน</Button
             >
         </div>

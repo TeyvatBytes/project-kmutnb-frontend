@@ -5,16 +5,12 @@
     import Ad from "$lib/components/Ad.svelte";
     import { onMount } from "svelte";
     import { getMe } from "$lib/api";
-    import { authRedirect, tokenStore } from "$lib/store/auth";
+    import { tokenStore } from "$lib/store/auth";
     import { goto } from "$app/navigation";
     let { children } = $props();
 
     onMount(() => {
-      if(!$tokenStore) {
-        authRedirect.set('/seller')
-        return goto('/login')
-      }
-      getMe();
+      if($tokenStore) getMe();
     });
 </script>
 
