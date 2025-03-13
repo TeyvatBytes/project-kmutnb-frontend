@@ -26,8 +26,6 @@
     <meta property="og:image" content={data.shop.logo} />
     <meta property="og:image:alt" content={data.shop.name} />
 
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={data.shop.name} />
     <meta name="twitter:description" content={data.shop.description} />
     <meta name="twitter:image" content={data.shop.logo} />
