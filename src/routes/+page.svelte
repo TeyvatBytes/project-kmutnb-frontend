@@ -410,7 +410,7 @@
                 เริ่มต้นธุรกิจออนไลน์ของคุณวันนี้กับ SellVat
                 ระบบร้านค้าออนไลน์ที่ใช้งานง่าย
             </p>
-            <Button class="px-8 py-3">สร้างร้านเลย!</Button>
+            <Button href="/seller" class="px-8 py-3">สร้างร้านเลย!</Button>
         </div>
     </section>
 

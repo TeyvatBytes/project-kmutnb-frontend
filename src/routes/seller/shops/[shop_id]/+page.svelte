@@ -1,8 +1,12 @@
 <script lang="ts">
-    import { Button } from "$lib/components/ui/button/index.js";
+    import { invalidateAll } from "$app/navigation";
+    import { client } from "$lib/api.js";
+    import { Button } from "$lib/components/ui/button";
     import { Input } from "$lib/components/ui/input";
     import { Label } from "$lib/components/ui/label";
-    import { Modal } from "$lib/components/ui/modal/index.js";
+
+    import * as Select from "$lib/components/ui/select";
+    import { Modal } from "$lib/components/ui/modal";
     import {
         ArrowLeft,
         Package,
@@ -34,15 +38,64 @@
     let openWithdrawModal = $state(false);
     let loadingWithdraw = $state(false);
 
-    function handleWithdraw(event: SubmitEvent) {
+    let withdrawlMethods = [
+        "ธนาคารกรุงเทพ",
+        "ธนาคารกสิกรไทย",
+        "ธนาคารกรุงไทย",
+        "ธนาคารทหารไทย",
+        "ธนาคารไทยพาณิชย์",
+        "ธนาคารกรุงศรีอยุธยา",
+        "ธนาคารเกียรตินาคิน",
+        "ธนาคารซีไอเอ็มบีไทย",
+        "ธนาคารทิสโก้",
+        "ธนาคารธนชาต",
+        "ธนาคารยูโอบี",
+        "ธนาคารสแตนดาร์ดชาร์เตอร์ด (ไทย)",
+        "ธนาคารไทยเครดิตเพื่อรายย่อย",
+        "ธนาคารแลนด์ แอนด์ เฮาส์ ",
+        "ธนาคารไอซีบีซี (ไทย)",
+        "ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย",
+        "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร",
+        "ธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย",
+        "ธนาคารออมสิน",
+        "ธนาคารอาคารสงเคราะห์",
+        "ธนาคารอิสลามแห่งประเทศไทย",
+        "ธนาคารแห่งประเทศจีน",
+        "ธนาคารซูมิโตโม มิตซุย ทรัสต์ (ไทย)",
+        "ธนาคารฮ่องกงและเซี้ยงไฮ้แบงกิ้งคอร์ปอเรชั่น จำกัด",
+    ];
+    let selectedWithdrawlMethod = $state(null);
+    let withdrawlBankNumber = $state("");
+    let withdrawlBankName = $state("");
+    let withdrawlAmount = $state(0);
+    async function handleWithdraw(event: SubmitEvent) {
         event.preventDefault();
         loadingWithdraw = true;
-        // Simulate API call
-        setTimeout(() => {
+        try {
+            if (!withdrawlBankName || !withdrawlAmount || !withdrawlBankNumber)
+                return toast.error("กรุณากรอกข้อมูลให้ครบถ้วน");
+            const { data: result, error } = await client.api.v1.shops[
+                data.shop.id
+            ].withdrawl.post({
+                amount: withdrawlAmount,
+                detail: `ธนาคาร: ${selectedWithdrawlMethod}
+เลขบัญชี: ${withdrawlBankNumber}
+ชื่อบัญชี: ${withdrawlBankName}`,
+            });
+
+            if (error?.data?.error) {
+                toast.error(error.data.error);
+            } else {
+                toast.success("ส่งคำขอถอนเงินสำเร็จแล้ว");
+            }
+            await invalidateAll();
+        } catch (error) {
+            console.error(error);
+            toast.error("เกิดข้อผิดพลาดในการขอถอนเงิน");
+        } finally {
             loadingWithdraw = false;
             openWithdrawModal = false;
-            toast.success("ส่งคำขอถอนเงินสำเร็จแล้ว");
-        }, 2000);
+        }
     }
 </script>
 
@@ -298,6 +351,46 @@
                     เหลือ <span class="text-blue-600 font-bold">2</span> ครั้ง
                 </div>
             </div>
+        </div>
+        <div>
+            <Label>ธนาคารที่ต้องการถอน</Label>
+            <Select.Root type="single" bind:value={selectedWithdrawlMethod}>
+                <Select.Trigger
+                    >{selectedWithdrawlMethod || "เลือกธนาคาร"}</Select.Trigger
+                >
+                <Select.Content>
+                    {#each withdrawlMethods as method}
+                        <Select.Item value={method}>{method}</Select.Item>
+                    {/each}
+                </Select.Content>
+            </Select.Root>
+        </div>
+
+        <div>
+            <Label>เลขบัญชี</Label>
+            <Input
+                bind:value={withdrawlBankNumber}
+                type="text"
+                placeholder="526493..."
+            />
+        </div>
+        <div>
+            <Label>ชื่อบัญชี</Label>
+            <Input
+                bind:value={withdrawlBankName}
+                type="text"
+                placeholder="ยิ่งลักษณ์ ชินวั..."
+            />
+        </div>
+
+        <div>
+            <Label>จำนวนเงินที่ต้องการถอน</Label>
+            <Input
+                type="number"
+                min="0"
+                max="1000000"
+                placeholder="จำนวนเงิน"
+            />
         </div>
         <div
             class="p-6 rounded-lg bg-green-100 dark:bg-green-900 text-primary flex gap-3"

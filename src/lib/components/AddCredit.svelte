@@ -113,7 +113,9 @@
                 <Button variant="outline" onclick={() => (step = 1)} class="p-6"
                     >เลือกช่องทางอื่น</Button
                 >
-                <Button onclick={() => (step = 1)} class="p-6 bg-blue-600 "
+                <Button
+                    onclick={() => (step = 1)}
+                    class="p-6 bg-blue-600 text-white font-bold"
                     >เช็คสถานะ</Button
                 >
             </div>
