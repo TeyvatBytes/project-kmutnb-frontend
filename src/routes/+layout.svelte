@@ -35,7 +35,7 @@
 
     <!-- Additional SEO Tags -->
     <link rel="canonical" href="https://www.sellvat.com/">
-    <meta name="theme-color" content="#4F46E5">
+    <meta name="theme-color" content="#2563eb">
 </svelte:head>
 
 <Toaster />
