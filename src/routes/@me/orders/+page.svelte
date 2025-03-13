@@ -19,7 +19,6 @@
     import { toast } from "svelte-sonner";
     import { userStore } from "$lib/store/auth.js";
     import { goto, afterNavigate } from "$app/navigation";
-    import Navbar from "$lib/components/Navbar.svelte";
 
     let previousPage = $state("/");
 
@@ -177,8 +176,6 @@
         document.body.removeChild(link);
     }
 </script>
-
-<Navbar href={`/`} />
 
 <div class="flex flex-col gap-5 mt-5 max-w-7xl mx-auto px-6 min-h-screen">
     <div class="flex items-center gap-4">
