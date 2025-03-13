@@ -26,7 +26,6 @@ kind: Ingress
 metadata:
   name: cms-shop-frontend-redirect
   annotations:
-    traefik.ingress.kubernetes.io/preserve-host: "true"
     traefik.ingress.kubernetes.io/redirect-regex: "^https?://sellvat.com/(.*)"
     traefik.ingress.kubernetes.io/redirect-replacement: "https://www.sellvat.com/$1"
     traefik.ingress.kubernetes.io/redirect-permanent: "true"
@@ -34,6 +33,15 @@ metadata:
 spec:
   rules:
     - host: sellvat.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dummy-service
+                port:
+                  number: 80
   tls:
     - hosts:
         - sellvat.com
