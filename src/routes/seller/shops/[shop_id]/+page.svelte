@@ -39,6 +39,7 @@
     let loadingWithdraw = $state(false);
 
     let withdrawlMethods = [
+        "พร้อมเพย์",
         "ธนาคารกรุงเทพ",
         "ธนาคารกสิกรไทย",
         "ธนาคารกรุงไทย",
