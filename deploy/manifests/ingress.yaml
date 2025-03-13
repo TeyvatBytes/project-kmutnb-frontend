@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: cms-shop-frontend
   annotations:
-    "cert-manager.io/cluster-issuer": "cf-teyvatsbyte-issuer-prod"
+    cert-manager.io/cluster-issuer: "cf-teyvatsbyte-issuer-prod"
 spec:
   rules:
     - host: www.sellvat.com
@@ -16,6 +16,22 @@ spec:
                 name: cms-shop-frontend
                 port:
                   number: 80
+  tls:
+    - hosts:
+        - www.sellvat.com
+      secretName: tls-shop-sellvat-secret
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cms-shop-frontend-redirect
+  annotations:
+    traefik.ingress.kubernetes.io/redirect-regex: "^https?://sellvat.com/(.*)"
+    traefik.ingress.kubernetes.io/redirect-replacement: "https://www.sellvat.com/$1"
+    traefik.ingress.kubernetes.io/redirect-permanent: "true"
+    cert-manager.io/cluster-issuer: "cf-teyvatsbyte-issuer-prod"
+spec:
+  rules:
     - host: sellvat.com
       http:
         paths:
@@ -23,11 +39,10 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: cms-shop-frontend
+                name: dummy-service
                 port:
                   number: 80
   tls:
     - hosts:
         - sellvat.com
-        - www.sellvat.com
       secretName: tls-shop-sellvat-secret
