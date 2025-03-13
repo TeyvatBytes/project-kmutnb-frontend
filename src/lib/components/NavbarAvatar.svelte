@@ -55,17 +55,15 @@
         </DropdownMenu.Root>
         <AddCredit bind:open={showCreditModal} />
     {:else}
-        <div class="flex gap-4 items-center">
-            <Button
-                href="/login?returnUrl={encodeURIComponent(page.url.href)}"
-                variant="outline"
-                class="border text-sm">เข้าสู่ระบบ</Button
-            >
-            <Button
-                class="text-primary-foreground text-sm"
-                href="/register?returnUrl={encodeURIComponent(page.url.href)}"
-                >สมัครใช้งาน</Button
-            >
-        </div>
+        <Button
+            href="/login?returnUrl={encodeURIComponent(page.url.href)}"
+            variant="outline"
+            class="border text-sm">เข้าสู่ระบบ</Button
+        >
+        <Button
+            class="text-primary-foreground text-sm"
+            href="/register?returnUrl={encodeURIComponent(page.url.href)}"
+            >สมัครใช้งาน</Button
+        >
     {/if}
 </div>
