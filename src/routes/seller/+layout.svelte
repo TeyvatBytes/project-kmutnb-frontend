@@ -12,9 +12,9 @@
     onMount(() => {
       if(!$tokenStore) {
         authRedirect.set('/seller')
-        goto('/login')
+        return goto('/login')
       }
-        getMe();
+      getMe();
     });
 </script>
 
