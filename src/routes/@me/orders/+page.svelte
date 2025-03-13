@@ -17,7 +17,15 @@
         Clipboard,
     } from "lucide-svelte";
     import { toast } from "svelte-sonner";
+    import { userStore } from "$lib/store/auth.js";
+    import { goto, afterNavigate } from "$app/navigation";
+    import Navbar from "$lib/components/Navbar.svelte";
 
+    let previousPage = $state("/");
+
+    afterNavigate(({ from }) => {
+        previousPage = from?.url.pathname || previousPage;
+    });
     let { data } = $props();
 
     // Search and filter state
@@ -161,7 +169,7 @@
         link.setAttribute("href", url);
         link.setAttribute(
             "download",
-            `orders-${data.shop.slug}-${new Date().toISOString().slice(0, 10)}.csv`,
+            `orders-${$userStore.user.username}-${new Date().toISOString().slice(0, 10)}.csv`,
         );
         link.style.display = "none";
         document.body.appendChild(link);
@@ -170,10 +178,12 @@
     }
 </script>
 
-<div class="flex flex-col gap-5 mt-5">
+<Navbar href={`/`} />
+
+<div class="flex flex-col gap-5 mt-5 max-w-7xl mx-auto px-6 min-h-screen">
     <div class="flex items-center gap-4">
         <a
-            href="/shop/{data.shop.slug}"
+            href={previousPage}
             class="hover:bg-accent transition-colors p-2 rounded-full"
         >
             <ArrowLeft size={20} />
