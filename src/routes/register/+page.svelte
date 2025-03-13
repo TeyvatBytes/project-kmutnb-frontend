@@ -56,6 +56,7 @@
             await register(formData);
             goto(returnUrl);
         } catch (error) {
+            console.error(error)
             errorMessage = "การสมัครสมาชิกล้มเหลว กรุณาลองอีกครั้ง";
         } finally {
             isLoading = false;
