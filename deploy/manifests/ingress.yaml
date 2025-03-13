@@ -6,6 +6,16 @@ metadata:
     "cert-manager.io/cluster-issuer": "cf-teyvatsbyte-issuer-prod"
 spec:
   rules:
+    - host: www.sellvat.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cms-shop-frontend
+                port:
+                  number: 80
     - host: sellvat.com
       http:
         paths:
@@ -19,4 +29,5 @@ spec:
   tls:
     - hosts:
         - sellvat.com
+        - www.sellvat.com
       secretName: tls-shop-sellvat-secret
