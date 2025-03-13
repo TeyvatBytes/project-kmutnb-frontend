@@ -1,0 +1,12 @@
+# robots.txt for SellVat e-commerce platform
+# Last updated: March 14, 2025
+
+User-agent: *
+Allow: /
+Allow: /terms
+Allow: /privacy
+Allow: /login
+Allow: /register
+Allow: /shop/*
+
+Sitemap: https://www.sellvat.com/sitemap.xml
