@@ -57,7 +57,7 @@
             await register(formData);
             goto(returnUrl);
         } catch (error) {
-            console.error(error)
+            console.error(error);
             errorMessage = "การสมัครสมาชิกล้มเหลว กรุณาลองอีกครั้ง";
         } finally {
             isLoading = false;
@@ -65,6 +65,10 @@
     };
 </script>
 
+<svelte:head>
+    <title>SellVat | สมัครสมาชิก</title>
+    <link rel="canonical" href="https://sellvat.com/login" />
+</svelte:head>
 <div
     class="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800"
 >

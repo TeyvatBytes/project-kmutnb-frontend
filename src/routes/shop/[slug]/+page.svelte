@@ -9,16 +9,12 @@
 </script>
 
 <svelte:head>
-    <meta charset="UTF-8" />
     <title>{data.shop.name}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={data.shop.description} />
     <meta
         name="keywords"
         content="ระบบร้านค้าออนไลน์, e-commerce, ขายของออนไลน์, จัดการสินค้า, ระบบจัดส่ง, วิเคราะห์ยอดขาย, SellVat"
     />
-    <meta name="author" content="TeyvatBytes Inc." />
-    <meta name="robots" content="index, follow" />
 
     <!-- Open Graph Tags -->
     <meta property="og:title" content={data.shop.name} />

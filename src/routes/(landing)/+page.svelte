@@ -91,6 +91,10 @@
 </script>
 
 <svelte:head>
+    <title
+        >SellVat | ระบบร้านค้าออนไลน์ครบวงจร จัดการสินค้า การขาย
+        และการจัดส่งในที่เดียว</title
+    >
     <link rel="canonical" href="https://sellvat.com/" />
 </svelte:head>
 <!-- Hero Section -->

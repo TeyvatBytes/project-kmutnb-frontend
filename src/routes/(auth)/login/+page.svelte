@@ -32,6 +32,10 @@
     };
 </script>
 
+<svelte:head>
+    <title>SellVat | เข้าสู่ระบบ</title>
+    <link rel="canonical" href="https://sellvat.com/login" />
+</svelte:head>
 <div
     class="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800"
 >
