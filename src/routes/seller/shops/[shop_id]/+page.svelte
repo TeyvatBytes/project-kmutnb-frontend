@@ -141,7 +141,7 @@
     >
         <Link class="size-10" />
         <Label class="w-full">ลิ้งร้านของคุณ</Label>
-        <Input value="sellvat.com/shop/{data.shop.slug}/" />
+        <Input value="https://sellvat.com/shop/{data.shop.slug}/" />
     </div>
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
