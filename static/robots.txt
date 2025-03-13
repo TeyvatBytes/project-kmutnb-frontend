@@ -9,4 +9,4 @@ Allow: /login
 Allow: /register
 Allow: /shop/*
 
-Sitemap: https://www.sellvat.com/sitemap.xml
+Sitemap: https://sellvat.com/sitemap.xml
