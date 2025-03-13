@@ -156,6 +156,28 @@
             <Label>จำนวนสินค้า</Label>
             <Input type="number" bind:value={quantity} min="1" />
         </div>
+        <div class="flex gap-3 justify-between">
+            <Button
+                variant="outline"
+                class="w-full"
+                onclick={() => (quantity -= 10)}>-10</Button
+            >
+            <Button
+                variant="outline"
+                class="w-full"
+                onclick={() => (quantity -= 1)}>-1</Button
+            >
+            <Button
+                variant="outline"
+                class="w-full"
+                onclick={() => (quantity += 1)}>+1</Button
+            >
+            <Button
+                variant="outline"
+                class="w-full"
+                onclick={() => (quantity += 10)}>+10</Button
+            >
+        </div>
 
         <div class="flex flex-col gap-3">
             <div class="flex justify-between">
