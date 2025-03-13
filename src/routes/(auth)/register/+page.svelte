@@ -54,8 +54,9 @@
 
         try {
             isLoading = true;
-            await register(formData);
-            goto(returnUrl);
+
+            const user = await register(formData);
+            if (user) goto(returnUrl);
         } catch (error) {
             console.error(error);
             errorMessage = "การสมัครสมาชิกล้มเหลว กรุณาลองอีกครั้ง";

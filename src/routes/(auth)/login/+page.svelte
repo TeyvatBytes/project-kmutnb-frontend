@@ -22,8 +22,8 @@
 
         try {
             isLoading = true;
-            await login({ username, password });
-            goto(returnUrl);
+            const user = await login({ username, password });
+            if (user) goto(returnUrl);
         } catch (error) {
             errorMessage = "เข้าสู่ระบบล้มเหลว กรุณาลองอีกครั้ง";
         } finally {

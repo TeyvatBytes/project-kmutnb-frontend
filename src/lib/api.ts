@@ -28,19 +28,25 @@ export const register = async (body: {
   const { data, error } = await client.api.v1.auth.register.post(body);
 
   console.log({ data, error });
-  if (error) return toast.error(error.value.error);
+  if (error) {
+    toast.error(error.value.error);
+    return;
+  }
   tokenStore.set(data.token);
-  await getMe();
   toast.success("สมัครสมาชิกสำเร็จ");
+  return getMe();
 };
 export const login = async (body: { username: string; password: string }) => {
   const { data, error } = await client.api.v1.auth.login.post(body);
 
   console.log({ data, error });
-  if (error) return toast.error(error.value.error);
+  if (error) {
+    toast.error(error.value.error);
+    return;
+  }
   toast.success("เข้าสู่ระบบสำเร็จ");
   tokenStore.set(data.token);
-  await getMe();
+  return getMe();
 };
 
 export const getMe = async () => {
