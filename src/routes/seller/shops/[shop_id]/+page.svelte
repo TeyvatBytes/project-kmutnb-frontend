@@ -387,6 +387,7 @@
         <div>
             <Label>จำนวนเงินที่ต้องการถอน</Label>
             <Input
+                bind:value={withdrawlAmount}
                 type="number"
                 min="0"
                 max="1000000"
