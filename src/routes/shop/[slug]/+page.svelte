@@ -36,9 +36,7 @@
     <meta name="twitter:description" content={data.shop.description} />
     <meta name="twitter:image" content={data.shop.logo} />
 
-    <link
-rel="canonical"
-href="https://sellvat.com/shop/{data.shop.slug}/"
+    <link rel="canonical" href="https://sellvat.com/shop/{data.shop.slug}/" />
 </svelte:head>
 
 <div class="grid gap-10">
