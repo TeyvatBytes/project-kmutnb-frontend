@@ -31,6 +31,7 @@
     import { client } from "$lib/api.js";
     import { toast } from "svelte-sonner";
     import { goto } from "$app/navigation";
+    import { tokenStore } from "$lib/store/auth.js";
     const { data } = $props();
     let quantity = $state(1);
 
@@ -46,6 +47,10 @@
     async function buyProduct() {
         loading = true;
         try {
+            if (!$tokenStore)
+                return goto(
+                    `/login?returnUrl=${encodeURIComponent(window.location.pathname)}`,
+                );
             const { data: buyData, error } = await client.api.v1.shops[
                 data.shop.id
             ].products[data.product.id].buy.post({ quantity });
@@ -202,7 +207,7 @@
                 <Button
                     onclick={buyProduct}
                     type="submit"
-                    class="p-8 bg-blue-600 font-bold text-xl"
+                    class="p-8 bg-blue-600 text-white font-bold text-xl"
                     >ยืนยันการสั่งซื้อ</Button
                 >
             </div>
