@@ -163,7 +163,7 @@
                         </li>
                         <li>
                             <a
-                                href="#"
+                                href="/privacy"
                                 class="text-xs text-gray-500 hover:text-gray-900"
                                 >นโยบาย</a
                             >
