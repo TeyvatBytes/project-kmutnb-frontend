@@ -104,11 +104,11 @@
 <div class="min-h-screen flex flex-col bg-background text-primary">
     <!-- Navigation -->
     <header
-        class="px-6 py-4 transition-all duration-300 sticky top-0 z-50 {scrolled
+        class="py-4 transition-all duration-300 sticky top-0 z-50 {scrolled
             ? 'bg-background shadow-sm'
             : 'bg-background'}"
     >
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="max-w-7xl px-6 mx-auto flex justify-between items-center">
             <a href="/" class="text-3xl font-extrabold text-primary">SellVat</a>
 
             <nav class="hidden md:flex gap-8 text-sm items-center">
