@@ -13,6 +13,7 @@
     let isLoading = false;
     let errorMessage = "";
 
+    let returnUrl = page.url.searchParams.get("returnUrl") || "/";
     const handleSubmit = async () => {
         if (!username || !password) {
             errorMessage = "กรุณากรอกอีเมลและรหัสผ่าน";
@@ -22,7 +23,7 @@
         try {
             isLoading = true;
             await login({ username, password });
-            goto(page.url.searchParams.get("returnUrl") || "/");
+            goto(returnUrl);
         } catch (error) {
             errorMessage = "เข้าสู่ระบบล้มเหลว กรุณาลองอีกครั้ง";
         } finally {
@@ -229,7 +230,9 @@
                         <p class="text-slate-600 dark:text-slate-400">
                             ยังไม่มีบัญชี?
                             <a
-                                href="/register"
+                                href="/register?returnUrl={encodeURIComponent(
+                                    returnUrl,
+                                )}"
                                 class="text-blue-600 dark:text-blue-400 font-medium hover:text-blue-500 dark:hover:text-blue-300"
                             >
                                 สมัครสมาชิก

@@ -4,6 +4,7 @@
     import { Button } from "$lib/components/ui/button";
     import { register } from "$lib/api";
     import Copyright from "$lib/components/Copyright.svelte";
+    import { page } from "$app/state";
 
     let formData = {
         username: "",
@@ -15,6 +16,7 @@
     let isLoading = false;
     let errorMessage = "";
     let errors = {};
+    let returnUrl = page.url.searchParams.get("returnUrl") || "/";
 
     const validateForm = () => {
         errors = {};
@@ -52,6 +54,7 @@
         try {
             isLoading = true;
             await register(formData);
+            goto(returnUrl);
         } catch (error) {
             errorMessage = "การสมัครสมาชิกล้มเหลว กรุณาลองอีกครั้ง";
         } finally {
@@ -278,7 +281,9 @@
                         <p class="text-slate-600 dark:text-slate-400">
                             มีบัญชีอยู่แล้ว?
                             <a
-                                href="/login"
+                                href="/login?returnUrl={encodeURIComponent(
+                                    returnUrl,
+                                )}"
                                 class="text-blue-600 dark:text-blue-400 font-medium hover:text-blue-500 dark:hover:text-blue-300"
                             >
                                 เข้าสู่ระบบ
