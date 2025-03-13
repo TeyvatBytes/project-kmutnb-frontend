@@ -5,6 +5,7 @@
     import { register } from "$lib/api";
     import Copyright from "$lib/components/Copyright.svelte";
     import { page } from "$app/state";
+    import { goto } from "$app/navigation";
 
     let formData = {
         username: "",
@@ -56,6 +57,7 @@
             await register(formData);
             goto(returnUrl);
         } catch (error) {
+            console.error(error)
             errorMessage = "การสมัครสมาชิกล้มเหลว กรุณาลองอีกครั้ง";
         } finally {
             isLoading = false;
