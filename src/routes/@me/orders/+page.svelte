@@ -115,7 +115,7 @@
             const searchLower = searchQuery.toLowerCase();
             const matchesSearch =
                 order.id.toString().includes(searchLower) ||
-                order.product.name.toLowerCase().includes(searchLower) ||
+                order.product_name.toLowerCase().includes(searchLower) ||
                 order.user.username.toLowerCase().includes(searchLower);
 
             // Status filter
@@ -150,7 +150,7 @@
             const row = [
                 order.id,
                 order.user.username,
-                `"${order.product.name}"`,
+                `"${order.product_name}"`,
                 order.quantity,
                 order.price,
                 getThaiStatus(order.status),
@@ -240,7 +240,7 @@
 
     <!-- Export option -->
     <div class="flex justify-between items-center">
-        <p class="text-gray-500">
+        <p class="text-muted-foreground">
             แสดง {filteredOrders.length} จาก {data.orders.length} รายการ
         </p>
 
@@ -257,71 +257,71 @@
     </div>
 
     <!-- Orders table -->
-    <div class="bg-white rounded-lg shadow overflow-hidden">
+    <div class="bg-background rounded-lg border shadow overflow-hidden">
         {#if filteredOrders.length > 0}
             <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+                <table class="min-w-full divide-y divide-border">
+                    <thead class="bg-muted">
                         <tr>
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >เลขที่สั่งซื้อ</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >ผู้ซื้อ</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >สินค้า</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >จำนวน</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >ราคา</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >สถานะ</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >วันที่</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >การจัดการ</th
                             >
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody class="bg-background divide-y divide-border">
                         {#each filteredOrders as order}
                             <tr>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-muted-foreground"
                                 >
                                     #{order.id}
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground"
                                 >
                                     {order.user.username}
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground"
                                 >
-                                    {order.product.name}
+                                    {order.product_name}
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground"
                                 >
                                     {order.quantity}
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground"
                                 >
                                     {formatCurrency(order.price)}
                                 </td>
@@ -333,7 +333,7 @@
                                     </span>
                                 </td>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground"
                                 >
                                     {formatDate(order.createdAt)}
                                 </td>
@@ -356,10 +356,10 @@
         {:else}
             <div class="py-12 text-center">
                 <ShoppingBag size={48} class="mx-auto text-gray-400 mb-3" />
-                <h3 class="text-lg font-medium text-gray-900">
+                <h3 class="text-lg font-medium text-muted-foreground">
                     ไม่พบคำสั่งซื้อ
                 </h3>
-                <p class="mt-1 text-sm text-gray-500">
+                <p class="mt-1 text-sm text-muted-foreground">
                     {searchQuery ||
                     statusFilter !== "ALL" ||
                     dateRange.start ||
@@ -383,7 +383,7 @@
             <!-- Customer Details -->
             <div>
                 <h3 class="text-lg font-medium mb-2">ข้อมูลลูกค้า</h3>
-                <div class="bg-gray-50 p-4 rounded-md">
+                <div class="bg-muted p-4 flex flex-col gap-2 rounded-md">
                     <p>
                         <span class="font-semibold">ชื่อผู้ใช้:</span>
                         {currentOrder.user.username}
@@ -398,7 +398,7 @@
             <!-- Order Details -->
             <div>
                 <h3 class="text-lg font-medium mb-2">ข้อมูลคำสั่งซื้อ</h3>
-                <div class="bg-gray-50 p-4 rounded-md">
+                <div class="bg-muted p-4 rounded-md">
                     <p>
                         <span class="font-semibold">วันที่สั่งซื้อ:</span>
                         {formatDate(currentOrder.createdAt)}
@@ -421,19 +421,19 @@
 
         <!-- Product Details -->
         <h3 class="text-lg font-medium mb-2">สินค้าที่สั่งซื้อ</h3>
-        <div class="bg-white border border-gray-200 rounded-md mb-6">
+        <div class="bg-background border rounded-md mb-6">
             <div class="grid grid-cols-3 p-4 border-b">
                 <div class="col-span-2">
                     <p class="font-medium text-lg">
-                        {currentOrder.product.name}
+                        {currentOrder.product_name}
                     </p>
-                    <p class="text-sm text-gray-500">
-                        {currentOrder.product.description}
+                    <p class="text-sm text-muted-foreground">
+                        {currentOrder.description}
                     </p>
                 </div>
                 <div class="text-right">
                     <p class="font-semibold">
-                        {formatCurrency(currentOrder.product.price)} × {currentOrder.quantity}
+                        {formatCurrency(currentOrder.product_price)} × {currentOrder.quantity}
                     </p>
                     <p class="text-lg font-bold">
                         {formatCurrency(currentOrder.price)}
@@ -453,7 +453,7 @@
                 <Clipboard size={16} />
             </button>
         </h3>
-        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 mb-6">
+        <div class="bg-muted p-4 rounded-md border mb-6">
             <pre
                 class="font-mono text-sm whitespace-pre-wrap">{currentOrder.data}</pre>
         </div>

@@ -101,36 +101,35 @@
     ];
 </script>
 
-<div class="min-h-screen flex flex-col bg-white text-gray-800">
+<div class="min-h-screen flex flex-col bg-background text-primary">
     <!-- Navigation -->
     <header
         class="px-6 py-4 transition-all duration-300 sticky top-0 z-50 {scrolled
-            ? 'bg-white shadow-sm'
-            : 'bg-white'}"
+            ? 'bg-background shadow-sm'
+            : 'bg-background'}"
     >
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="/" class="text-3xl font-extrabold text-gray-900">SellVat</a
-            >
+            <a href="/" class="text-3xl font-extrabold text-primary">SellVat</a>
 
             <nav class="hidden md:flex gap-8 text-sm items-center">
                 <a
                     href="#features"
-                    class="text-gray-600 hover:text-gray-900 transition-colors"
+                    class="text-muted-foreground/60 hover:text-muted-foreground/80 transition-colors"
                     >ฟีเจอร์</a
                 >
                 <a
                     href="#testimonials"
-                    class="text-gray-600 hover:text-gray-900 transition-colors"
+                    class="text-muted-foreground/60 hover:text-muted-foreground/80 transition-colors"
                     >รีวิว</a
                 >
                 <a
                     href="#pricing"
-                    class="text-gray-600 hover:text-gray-900 transition-colors"
+                    class="text-muted-foreground/60 hover:text-muted-foreground/80 transition-colors"
                     >ราคา</a
                 >
                 <a
                     href="#contact"
-                    class="text-gray-600 hover:text-gray-900 transition-colors"
+                    class="text-muted-foreground/60 hover:text-muted-foreground/80 transition-colors"
                     >ติดต่อเรา</a
                 >
             </nav>
@@ -140,7 +139,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="py-12 md:py-20 border-b border-gray-100">
+    <section class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row gap-10 items-center">
                 <div class="w-full md:w-1/2">
@@ -149,21 +148,14 @@
                             class="text-blue-600">ธุรกิจ</span
                         >ของคุณ
                     </h1>
-                    <p class="text-gray-600 mb-8">
+                    <p class="text-muted-foreground mb-8">
                         ทำให้การเป็นเจ้าของธุรกิจของคุณง่ายขึ้น
                         ด้วยโซลูชั่นที่ครบวงจร จัดการสินค้า, การขาย,
                         และการจัดส่งได้ในที่เดียว
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <Button
-                            href="/login"
-                            class="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3"
-                            >เริ่มต้นใช้งานฟรี</Button
-                        >
-                        <Button
-                            href="/shop/demo"
-                            variant="outline"
-                            class="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3"
+                        <Button href="/login">เริ่มต้นใช้งานฟรี</Button>
+                        <Button href="/shop/demo" variant="outline"
                             >ชมการสาธิต</Button
                         >
                     </div>
@@ -179,7 +171,7 @@
             <!-- <div
                 class="flex gap-10 py-10 justify-center items-center flex-col mt-5"
             >
-                <div class="text-md text-gray-600">
+                <div class="text-md text-muted-foreground">
                     เชื่อถือด้วยพาร์ทเนอร์ทางธุรกิจทั่วประเทศ
                 </div>
                 <div class="flex gap-20 grayscale contrast-200">
@@ -204,7 +196,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-12 bg-gray-50">
+    <section class="py-12 bg-muted">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div class="p-6">
@@ -232,7 +224,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold mb-4">ฟีเจอร์หลัก</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
+                <p class="text-muted-foreground max-w-2xl mx-auto">
                     ระบบร้านค้าออนไลน์ที่มีทุกสิ่งที่คุณต้องการเพื่อเริ่มต้น
                     เติบโต และขยายธุรกิจของคุณ
                 </p>
@@ -258,7 +250,9 @@
                             <h3 class="text-2xl font-bold mb-3">
                                 {feature.title}
                             </h3>
-                            <p class="text-gray-600 mb-5">{feature.desc}</p>
+                            <p class="text-muted-foreground mb-5">
+                                {feature.desc}
+                            </p>
                             <div
                                 class="flex items-center text-sm text-gray-500"
                             >
@@ -286,11 +280,11 @@
     </section>
 
     <!-- Testimonial Section -->
-    <section id="testimonials" class="py-16 bg-gray-50">
+    <section id="testimonials" class="py-16 bg-muted">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold mb-4">ลูกค้าของเรา</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
+                <p class="text-muted-foreground max-w-2xl mx-auto">
                     ธุรกิจนับพันเลือกใช้ SellVat
                     สำหรับเปิดร้านค้าออนไลน์ของพวกเขา
                 </p>
@@ -298,7 +292,7 @@
 
             <div class="grid md:grid-cols-2 gap-8">
                 {#each testimonials as testimonial}
-                    <div class="bg-white p-8 rounded-lg border border-gray-200">
+                    <div class="bg-background p-8 rounded-lg border">
                         <div class="flex items-start mb-4">
                             <div class="mr-4">
                                 <div
@@ -318,7 +312,9 @@
                                 </p>
                             </div>
                         </div>
-                        <p class="text-gray-600">"{testimonial.quote}"</p>
+                        <p class="text-muted-foreground">
+                            "{testimonial.quote}"
+                        </p>
                     </div>
                 {/each}
             </div>
@@ -330,7 +326,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold mb-4">แพคเกจราคา</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
+                <p class="text-muted-foreground max-w-2xl mx-auto">
                     เลือกแพคเกจที่เหมาะกับขนาดธุรกิจของคุณ
                     เริ่มต้นฟรีและปรับเปลี่ยนได้ตลอด
                 </p>
@@ -341,7 +337,7 @@
                     <div
                         class="border {plan.highlight
                             ? 'border-gray-900'
-                            : 'border-gray-200'} rounded-lg overflow-hidden bg-white"
+                            : ''} rounded-lg overflow-hidden bg-background"
                     >
                         <div
                             class="p-6 {plan.highlight
@@ -378,7 +374,8 @@
                                                 d="M5 13l4 4L19 7"
                                             />
                                         </svg>
-                                        <span class="text-sm text-gray-600"
+                                        <span
+                                            class="text-sm text-muted-foreground"
                                             >{feature}</span
                                         >
                                     </li>
@@ -386,11 +383,10 @@
                             </ul>
                             <div class="mt-6">
                                 <Button
-                                    class="{plan.highlight
-                                        ? 'bg-gray-900 hover:bg-gray-800'
-                                        : 'border border-gray-300 bg-white hover:bg-gray-50 text-gray-700'} w-full py-3 {plan.highlight
-                                        ? 'text-white'
-                                        : ''}"
+                                    variant={plan.highlight
+                                        ? "default"
+                                        : "outline"}
+                                    class="w-full"
                                 >
                                     {plan.price === "0"
                                         ? "เริ่มต้นฟรี"
@@ -405,23 +401,21 @@
     </section>
 
     <!-- CTA Banner -->
-    <section class="py-16 border-t border-gray-200 mt-8 bg-gray-50">
+    <section class="py-16 mt-8 bg-muted">
         <div class="max-w-3xl mx-auto text-center px-6">
             <h2 class="text-2xl font-semibold mb-4">
                 อยากมีร้านเป็นของตัวเองใช่ไหมคะ?
             </h2>
-            <p class="text-gray-600 mb-8">
+            <p class="text-muted-foreground mb-8">
                 เริ่มต้นธุรกิจออนไลน์ของคุณวันนี้กับ SellVat
                 ระบบร้านค้าออนไลน์ที่ใช้งานง่าย
             </p>
-            <Button class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3">
-                สร้างร้านเลย!
-            </Button>
+            <Button class="px-8 py-3">สร้างร้านเลย!</Button>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white py-8 border-t border-gray-200 mt-auto">
+    <footer class="bg-background py-8 mt-auto">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div>

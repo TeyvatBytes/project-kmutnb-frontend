@@ -242,7 +242,7 @@
                         <!-- Submit Button -->
                         <Button
                             type="submit"
-                            class="w-full py-3 mt-6 bg-blue-600 font-bold"
+                            class="w-full py-3 mt-6 text-white bg-blue-600 font-bold"
                             disabled={isLoading}
                         >
                             {#if isLoading}

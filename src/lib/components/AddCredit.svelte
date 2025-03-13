@@ -10,16 +10,6 @@
 
     let methods = [
         {
-            id: "promptpay",
-            name: "PromptPay",
-            icon: "/assets/imgs/promptpaysquare.png",
-            description: "ชำระด้วย PromptPay",
-            class: "bg-[#113566]",
-            action: () => {
-                // Implement PromptPay payment logic here
-            },
-        },
-        {
             id: "truemoney",
             name: "TrueMoney Wallet",
             icon: "/assets/imgs/truewalletsquare.jpg",
@@ -30,11 +20,23 @@
             },
         },
         {
+            id: "promptpay",
+            name: "PromptPay",
+            icon: "/assets/imgs/promptpaysquare.png",
+            description: "ชำระด้วย PromptPay",
+            class: "bg-[#113566]",
+            disabled: true,
+            action: () => {
+                // Implement PromptPay payment logic here
+            },
+        },
+        {
             id: "credit",
             name: "Credit Card",
             icon: "/assets/imgs/visa.png",
             description: "ชำระด้วยบัตรเครดิต",
             class: "bg-[#064396]",
+            disabled: true,
             action: () => {
                 // Implement Credit Card payment logic here
             },
@@ -56,7 +58,10 @@
                 {#each methods as method}
                     <button
                         onclick={() => (selectedMethod = method.id)}
-                        class="rounded-xl text-left flex p-5 gap-10 items-center {selectedMethod ===
+                        disabled={method.disabled}
+                        class="rounded-xl text-left {method.disabled
+                            ? 'grayscale'
+                            : ''} flex p-5 gap-10 items-center {selectedMethod ===
                         method.id
                             ? 'bg-blue-100 dark:bg-blue-950'
                             : 'hover:bg-accent'} transition-colors"
@@ -69,7 +74,7 @@
                         />
                         <div class="flex flex-auto flex-col justify-between">
                             <div class="text-xl font-bold">{method.name}</div>
-                            <div class="text-gray-600 dark:text-gray-500">
+                            <div class="text-muted-foreground">
                                 ค่าธรรมเนียม 5.00%
                             </div>
                         </div>

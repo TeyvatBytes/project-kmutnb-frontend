@@ -55,15 +55,11 @@
         <AddCredit bind:open={showCreditModal} />
     {:else}
         <div class="flex gap-4 items-center">
-            <Button
-                href="/login"
-                variant="outline"
-                class="border border-gray-300 text-gray-700 hover:bg-gray-50 text-sm"
+            <Button href="/login" variant="outline" class="border text-sm"
                 >เข้าสู่ระบบ</Button
             >
-            <Button
-                class="bg-gray-900 hover:bg-gray-800 text-white text-sm"
-                href="/register">สมัครใช้งาน</Button
+            <Button class="text-primary-foreground text-sm" href="/register"
+                >สมัครใช้งาน</Button
             >
         </div>
     {/if}

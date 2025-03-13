@@ -50,7 +50,7 @@
 
     <form
         onsubmit={handleSave}
-        class="bg-white rounded-lg shadow p-6 flex flex-col gap-4"
+        class="bg-background rounded-lg shadow border p-6 flex flex-col gap-4"
     >
         <div class="text-2xl font-bold">ตั้งค่าร้านค้า</div>
         <div class="flex flex-col gap-4">
@@ -66,7 +66,9 @@
             <Label class="w-full">คำอธิบายร้านคุณ</Label>
             <Input bind:value={description} />
 
-            <Button type="submit" class="p-5 w-full bg-blue-600"
+            <Button
+                type="submit"
+                class="p-5 w-full text-white font-bold bg-blue-600"
                 >บันทึกร้านค้า</Button
             >
         </div>

@@ -9,7 +9,7 @@
 
 <button
     onclick={() => goto(href)}
-    class="border bg-accent rounded-lg p-5 overflow-hidden relative w-full text-left"
+    class="border dark:bg-background bg-accent rounded-lg p-5 overflow-hidden relative w-full text-left"
 >
     <div class="absolute bottom-0 right-0 block lg:hidden">
         <SpinningText
@@ -27,7 +27,7 @@
             />
             <div class="flex justify-between flex-col py-2">
                 <div
-                    class="text-xl font-bold text-sky-400 bg-sky-50 w-fit border rounded-lg p-1 px-2"
+                    class="text-xl font-bold text-sky-400 bg-sky-50 dark:bg-sky-950 w-fit border rounded-lg p-1 px-2"
                 >
                     {shop.name}
                 </div>

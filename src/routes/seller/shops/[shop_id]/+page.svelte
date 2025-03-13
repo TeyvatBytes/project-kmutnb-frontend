@@ -79,8 +79,7 @@
 
         <Button
             onclick={() => (openWithdrawModal = true)}
-            class="bg-blue-600 text-white p-6 dark:text-primary font-bold"
-            >ทำเริ่องถอนเงิน</Button
+            class="bg-blue-600 text-white p-6 font-bold">ทำเริ่องถอนเงิน</Button
         >
     </div>
     <div
@@ -99,7 +98,7 @@
                 <DollarSign class="text-purple-600" size={24} />
             </div>
             <div>
-                <p class="text-sm text-gray-500">ยอดขายทั้งหมด</p>
+                <p class="text-sm text-muted-foreground">ยอดขายทั้งหมด</p>
                 <p class="font-bold text-xl">
                     {formatCurrency(data.shop.balance)}
                 </p>
@@ -113,7 +112,7 @@
                 <ShoppingBag class="text-blue-600" size={24} />
             </div>
             <div>
-                <p class="text-sm text-gray-500">คำสั่งซื้อทั้งหมด</p>
+                <p class="text-sm text-muted-foreground">คำสั่งซื้อทั้งหมด</p>
                 <p class="font-bold text-xl">{data.shop._count.orders}</p>
             </div>
         </div>
@@ -125,7 +124,7 @@
                 <Package class="text-orange-600" size={24} />
             </div>
             <div>
-                <p class="text-sm text-gray-500">สินค้าทั้งหมด</p>
+                <p class="text-sm text-muted-foreground">สินค้าทั้งหมด</p>
                 <p class="font-bold text-xl">{data.shop._count.products}</p>
             </div>
         </div>
@@ -137,41 +136,47 @@
             href="/seller/shops/{data.shop.id}/products"
             class="bg-background border rounded-lg shadow p-6 hover:bg-accent transition-colors"
         >
-            <Tag size={24} class="mb-3 text-gray-700" />
+            <Tag size={24} class="mb-3 text-primary" />
             <h3 class="font-semibold">จัดการสินค้า</h3>
-            <p class="text-sm text-gray-500 mt-1">เพิ่ม/แก้ไขสินค้าและสต็อก</p>
+            <p class="text-sm text-muted-foreground mt-1">
+                เพิ่ม/แก้ไขสินค้าและสต็อก
+            </p>
         </a>
 
         <a
             href="/seller/shops/{data.shop.id}/orders"
             class="bg-background border rounded-lg shadow p-6 hover:bg-accent transition-colors"
         >
-            <ShoppingBag size={24} class="mb-3 text-gray-700" />
+            <ShoppingBag size={24} class="mb-3 text-primary" />
             <h3 class="font-semibold">คำสั่งซื้อ</h3>
-            <p class="text-sm text-gray-500 mt-1">จัดการคำสั่งซื้อทั้งหมด</p>
+            <p class="text-sm text-muted-foreground mt-1">
+                จัดการคำสั่งซื้อทั้งหมด
+            </p>
         </a>
 
         <a
             href="/seller/shops/{data.shop.id}/analytics"
             class="bg-background border rounded-lg shadow p-6 hover:bg-accent transition-colors"
         >
-            <TrendingUp size={24} class="mb-3 text-gray-700" />
+            <TrendingUp size={24} class="mb-3 text-primary" />
             <h3 class="font-semibold">วิเคราะห์</h3>
-            <p class="text-sm text-gray-500 mt-1">สถิติและรายงานยอดขาย</p>
+            <p class="text-sm text-muted-foreground mt-1">
+                สถิติและรายงานยอดขาย
+            </p>
         </a>
 
         <a
             href="/seller/shops/{data.shop.id}/settings"
             class="bg-background border rounded-lg shadow p-6 hover:bg-accent transition-colors"
         >
-            <Settings size={24} class="mb-3 text-gray-700" />
+            <Settings size={24} class="mb-3 text-primary" />
             <h3 class="font-semibold">ตั้งค่าร้านค้า</h3>
-            <p class="text-sm text-gray-500 mt-1">แก้ไขข้อมูลร้านค้า</p>
+            <p class="text-sm text-muted-foreground mt-1">แก้ไขข้อมูลร้านค้า</p>
         </a>
     </div>
 
     <!-- Recent Orders -->
-    <div class="bg-background border rounded-lg shadow p-6 mt-4">
+    <div class="bg-background mt-4">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-lg font-semibold">คำสั่งซื้อล่าสุด</h2>
             <a
@@ -181,59 +186,57 @@
         </div>
 
         {#if data.recentOrders && data.recentOrders.length > 0}
-            <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+            <div class="overflow-x-auto rounded-lg border">
+                <table class="min-w-full">
+                    <thead class="bg-muted">
                         <tr>
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >เลขที่สั่งซื้อ</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >สินค้า</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >จำนวน</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >ราคา</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >วันที่</th
                             >
                             <th
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                                 >สถานะ</th
                             >
                         </tr>
                     </thead>
-                    <tbody
-                        class="bg-background border divide-y divide-gray-200"
-                    >
+                    <tbody class="bg-background">
                         {#each data.recentOrders as order}
                             <tr>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground"
                                     >#{order.id}</td
                                 >
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                                    >{order.product.name}</td
+                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-muted-foreground"
+                                    >{order.product_name}</td
                                 >
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground"
                                     >{order.quantity}</td
                                 >
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground"
                                     >{formatCurrency(order.price)}</td
                                 >
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground"
                                 >
                                     {new Date(
                                         order.createdAt,
@@ -263,7 +266,9 @@
                 </table>
             </div>
         {:else}
-            <p class="text-gray-500 text-center py-4">ยังไม่มีคำสั่งซื้อ</p>
+            <p class="text-muted-foreground text-center py-4">
+                ยังไม่มีคำสั่งซื้อ
+            </p>
         {/if}
     </div>
 </div>

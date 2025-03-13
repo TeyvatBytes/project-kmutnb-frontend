@@ -65,7 +65,9 @@
         <h2 class="text-2xl font-semibold">สร้างร้านค้า</h2>
     </div>
     <div class="flex flex-col gap-3">
-        <div class="p-6 rounded-lg bg-green-100 flex gap-3">
+        <div
+            class="p-6 rounded-lg bg-green-100 dark:bg-green-900 flex gap-3 text-primary"
+        >
             <Lightbulb />คุณสามารถเปลี่ยนชื่อร้านค้าในภายหลังได้
         </div>
 
@@ -83,8 +85,9 @@
 
         <Label>ชื่อสั้นๆร้าน(ภาษาอังกฤษพิมเล็กเท่านั้า)</Label>
         <Input placeholder="my-shop...." bind:value={slug} />
-        <Button onclick={handleCreateShop} class="bg-blue-600 p-6"
-            >สร้างร้านค้า</Button
+        <Button
+            onclick={handleCreateShop}
+            class="bg-blue-600 font-bold text-white p-6">สร้างร้านค้า</Button
         >
     </div>
 </Modal>

@@ -200,7 +200,9 @@
     </div>
 
     <!-- Time period filter -->
-    <div class="flex space-x-2 bg-white rounded-lg shadow p-1 w-fit">
+    <div
+        class="flex space-x-2 bg-background border rounded-lg shadow p-1 w-fit"
+    >
         <Button
             variant={timePeriod === "week" ? "default" : "ghost"}
             onclick={() => changeTimePeriod("week")}
@@ -227,10 +229,12 @@
     <!-- Key metrics -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Sales -->
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-background border rounded-lg shadow p-6">
             <div class="flex justify-between items-start">
                 <div>
-                    <p class="text-sm text-gray-500 flex items-center gap-1">
+                    <p
+                        class="text-sm text-muted-foreground flex items-center gap-1"
+                    >
                         <DollarSign size={14} />
                         ยอดขาย
                     </p>
@@ -254,10 +258,12 @@
         </div>
 
         <!-- Orders -->
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-background border rounded-lg shadow p-6">
             <div class="flex justify-between items-start">
                 <div>
-                    <p class="text-sm text-gray-500 flex items-center gap-1">
+                    <p
+                        class="text-sm text-muted-foreground flex items-center gap-1"
+                    >
                         <ShoppingBag size={14} />
                         คำสั่งซื้อ
                     </p>
@@ -281,10 +287,12 @@
         </div>
 
         <!-- Customers -->
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-background border rounded-lg shadow p-6">
             <div class="flex justify-between items-start">
                 <div>
-                    <p class="text-sm text-gray-500 flex items-center gap-1">
+                    <p
+                        class="text-sm text-muted-foreground flex items-center gap-1"
+                    >
                         <Users size={14} />
                         ลูกค้า
                     </p>
@@ -310,10 +318,12 @@
         </div>
 
         <!-- Average Order Value -->
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-background border rounded-lg shadow p-6">
             <div class="flex justify-between items-start">
                 <div>
-                    <p class="text-sm text-gray-500 flex items-center gap-1">
+                    <p
+                        class="text-sm text-muted-foreground flex items-center gap-1"
+                    >
                         <Package size={14} />
                         มูลค่าเฉลี่ยต่อคำสั่งซื้อ
                     </p>
@@ -340,7 +350,7 @@
     </div>
 
     <!-- Sales Chart -->
-    <div class="bg-white rounded-lg shadow p-6">
+    <div class="bg-background border rounded-lg shadow p-6">
         <h2 class="text-lg font-semibold mb-4">
             ยอดขายตาม{timePeriod === "year" ? "เดือน" : "วันที่"}
         </h2>
@@ -349,7 +359,7 @@
 
     <!-- Top Products -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-background border rounded-lg shadow p-6">
             <h2 class="text-lg font-semibold mb-4">สินค้าขายดี</h2>
             <div class="space-y-4">
                 {#each data.topProducts as product, index}
@@ -360,7 +370,7 @@
                         <div class="flex-1">
                             <p class="font-medium">{product.name}</p>
                             <div
-                                class="flex justify-between text-sm text-gray-500"
+                                class="flex justify-between text-sm text-muted-foreground"
                             >
                                 <span>{product.sold} ขาย</span>
                                 <span>{formatCurrency(product.revenue)}</span>
@@ -372,12 +382,14 @@
         </div>
 
         <!-- Recent Stats -->
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-background border rounded-lg shadow p-6">
             <h2 class="text-lg font-semibold mb-4">สถิติล่าสุด</h2>
 
             <div class="space-y-4">
                 <div class="border-b pb-2">
-                    <p class="text-gray-500 text-sm">คำสั่งซื้อล่าสุด</p>
+                    <p class="text-muted-foreground text-sm">
+                        คำสั่งซื้อล่าสุด
+                    </p>
                     <div class="flex justify-between mt-1">
                         <p class="font-medium">
                             #{data.latestOrder.id}
@@ -387,26 +399,30 @@
                             {formatCurrency(data.latestOrder.price)}
                         </p>
                     </div>
-                    <p class="text-gray-500 text-sm">
+                    <p class="text-muted-foreground text-sm">
                         {formatDate(data.latestOrder.date)}
                     </p>
                 </div>
 
                 <div class="border-b pb-2">
-                    <p class="text-gray-500 text-sm">สินค้าที่ขายล่าสุด</p>
+                    <p class="text-muted-foreground text-sm">
+                        สินค้าที่ขายล่าสุด
+                    </p>
                     <div class="flex justify-between mt-1">
                         <p class="font-medium">{data.latestSoldProduct.name}</p>
                         <p class="font-medium">
                             x{data.latestSoldProduct.quantity}
                         </p>
                     </div>
-                    <p class="text-gray-500 text-sm">
+                    <p class="text-muted-foreground text-sm">
                         {formatDate(data.latestSoldProduct.date)}
                     </p>
                 </div>
 
                 <div>
-                    <p class="text-gray-500 text-sm">วันที่ขายดีที่สุด</p>
+                    <p class="text-muted-foreground text-sm">
+                        วันที่ขายดีที่สุด
+                    </p>
                     <div class="flex justify-between mt-1">
                         <p class="font-medium">
                             {formatDate(data.bestDay.date)}
@@ -415,7 +431,7 @@
                             {formatCurrency(data.bestDay.revenue)}
                         </p>
                     </div>
-                    <p class="text-gray-500 text-sm">
+                    <p class="text-muted-foreground text-sm">
                         {data.bestDay.orders} คำสั่งซื้อ
                     </p>
                 </div>

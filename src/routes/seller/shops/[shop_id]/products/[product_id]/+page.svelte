@@ -241,7 +241,7 @@
 
             <Button
                 onclick={() => (showAddStockModal = true)}
-                class="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-white dark:text-primary"
+                class="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-white"
             >
                 <Plus size={16} />
                 เพิ่มสต็อก
@@ -402,7 +402,7 @@
             </Button>
             <Button
                 onclick={handleAddStock}
-                class="bg-blue-600 hover:bg-blue-700 text-white dark:text-primary"
+                class="bg-blue-600 hover:bg-blue-700 text-white"
                 disabled={stockLines.length === 0}
             >
                 เพิ่มสต็อก {stockLines.length > 0
