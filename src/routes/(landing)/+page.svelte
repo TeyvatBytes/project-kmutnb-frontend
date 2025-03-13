@@ -90,6 +90,9 @@
     ];
 </script>
 
+<svelte:head>
+    <link rel="canonical" href="https://sellvat.com/" />
+</svelte:head>
 <!-- Hero Section -->
 <section class="py-12 md:py-20">
     <div class="max-w-7xl mx-auto px-6">

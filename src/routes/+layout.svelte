@@ -34,7 +34,6 @@
     <meta name="twitter:image" content="https://sellvat.com/assets/ogg.png">
 
     <!-- Additional SEO Tags -->
-    <link rel="canonical" href="https://sellvat.com/">
     <meta name="theme-color" content="#2563eb">
 </svelte:head>
 

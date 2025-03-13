@@ -70,6 +70,50 @@
     }
 </script>
 
+<svelte:head>
+    <meta charset="UTF-8" />
+    <title>{data.product.name} | {data.shop.name}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+        name="description"
+        content="{data.product.name} | {data.product.description}"
+    />
+    <meta
+        name="keywords"
+        content="ระบบร้านค้าออนไลน์, e-commerce, ขายของออนไลน์, จัดการสินค้า, ระบบจัดส่ง, วิเคราะห์ยอดขาย, SellVat"
+    />
+    <meta name="author" content="TeyvatBytes Inc." />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph Tags -->
+    <meta
+        property="og:title"
+        content="{data.product.name} | {data.shop.name}"
+    />
+    <meta property="og:description" content={data.product.description} />
+    <meta
+        property="og:url"
+        content="https://sellvat.com/shop/{data.shop.slug}/products/{data
+            .product.id}/"
+    />
+    <meta property="og:image" content={data.product.image} />
+    <meta property="og:image:alt" content={data.product.name} />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+        name="twitter:title"
+        content="{data.product.name} | {data.shop.name}"
+    />
+    <meta name="twitter:description" content={data.product.description} />
+    <meta name="twitter:image" content={data.product.image} />
+    <link
+        rel="canonical"
+        href="https://sellvat.com/shop/{data.shop.slug}/products/{data.product
+            .id}/"
+    />
+</svelte:head>
+
 <div class="grid md:grid-cols-5 grid-cols-1 gap-3">
     <a
         href={`/shop/${data.shop.slug}`}

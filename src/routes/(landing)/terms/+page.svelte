@@ -97,6 +97,10 @@
 โทรศัพท์: 02-632-2563`;
 </script>
 
+<svelte:head>
+    <title>SellVat | ข้อกำหนดการใช้งาน</title>
+    <link rel="canonical" href="https://sellvat.com/terms" />
+</svelte:head>
 <h2 class="font-bold text-3xl text-center py-36 bg-muted">
     ข้อกำหนดการใช้งานของ SellVat
 </h2>

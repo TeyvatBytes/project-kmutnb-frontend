@@ -90,6 +90,11 @@
 โทรศัพท์: 02-632-2563`;
 </script>
 
+<svelte:head>
+    <title>SellVat | นโยบายความเป็นส่วนตัว</title>
+    <link rel="canonical" href="https://sellvat.com/privacy" />
+</svelte:head>
+
 <h2 class="font-bold text-3xl text-center py-36 bg-muted">
     นโยบายความเป็นส่วนตัวของ SellVat
 </h2>
