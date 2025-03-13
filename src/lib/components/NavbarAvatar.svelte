@@ -39,7 +39,9 @@
                     <DropdownMenu.Item onclick={() => (showCreditModal = true)}
                         >เพิ่มเครดิต</DropdownMenu.Item
                     >
-                    <DropdownMenu.Item>ออเดอร์</DropdownMenu.Item>
+                    <a href="/@me/orders">
+                        <DropdownMenu.Item>ออเดอร์</DropdownMenu.Item>
+                    </a>
                     <DropdownMenu.Item onclick={logout} class="text-red-600"
                         >ออกจากระบบ</DropdownMenu.Item
                     >
