@@ -68,7 +68,7 @@
 
 <svelte:head>
     <title>SellVat | สมัครสมาชิก</title>
-    <link rel="canonical" href="https://sellvat.com/login" />
+    <link rel="canonical" href="https://sellvat.com/register" />
 </svelte:head>
 <div
     class="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800"
