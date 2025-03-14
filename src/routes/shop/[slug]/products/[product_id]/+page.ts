@@ -1,4 +1,5 @@
 import { client } from "$lib/api";
+import Decimal from "decimal.js";
 
 export async function load({ params }) {
   const { data: shop } = await client.api.v1.shops["by-slug"].get({

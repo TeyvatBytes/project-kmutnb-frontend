@@ -7,9 +7,6 @@
     import { getMe } from "$lib/api";
 	let { children,data } = $props();
 
-	onMount(()=>{
-		getMe();
-	})
 </script>
 
 <Navbar title={data.shop.name} href={`/shop/${data.shop.slug}/`}/>

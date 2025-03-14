@@ -23,6 +23,7 @@
     } from "lucide-svelte";
     import { toast } from "svelte-sonner";
     import ThaiBahtText from "thai-baht-text";
+    import Decimal from "decimal.js";
 
     let { data } = $props();
 
@@ -98,6 +99,8 @@
             openWithdrawModal = false;
         }
     }
+
+    let balance = new Decimal(data.shop.balance);
 </script>
 
 <div class="flex flex-col gap-5 mt-5">
@@ -120,14 +123,10 @@
         <Label class="w-full">ยอดเงินในร้านของคุณ</Label>
         <div class="flex flex-col">
             <div class="flex gap-3 items-center text-xl font-bold">
-                <span class="text-blue-600"
-                    >{data.shop.balance.toFixed(2)}฿</span
-                >
+                <span class="text-blue-600">{balance.toFixed(2)}฿</span>
             </div>
             <div class="text-xs text-primary/60">
-                {data.shop.balance
-                    ? `(${ThaiBahtText(data.shop.balance)})`
-                    : ""}
+                {balance ? `(${ThaiBahtText(balance.toNumber())})` : ""}
             </div>
         </div>
 

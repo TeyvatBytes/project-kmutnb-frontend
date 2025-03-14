@@ -32,12 +32,14 @@
     import { toast } from "svelte-sonner";
     import { goto } from "$app/navigation";
     import { tokenStore } from "$lib/store/auth.js";
+    import Decimal from "decimal.js";
     const { data } = $props();
     let quantity = $state(1);
+    let price = new Decimal(data.product.price);
 
-    let total_price = $derived(data.product.price * quantity);
-    let fee = $derived(total_price * 0.03);
-    let final_price = $derived(total_price + fee);
+    let total_price = $derived(price.mul(quantity));
+    let fee = $derived(total_price.mul(0.03));
+    let final_price = $derived(total_price.plus(fee));
     const plugins = [gfmPlugin()];
 
     let showBuyModel = $state(false);
@@ -129,7 +131,7 @@
 
             <div class="text-xl">
                 ราคา <span class="text-blue-600 font-bold"
-                    >{data.product.price.toFixed(2)}</span
+                    >{new Decimal(price).toFixed(2)}</span
                 > บาท
             </div>
         </div>
@@ -229,7 +231,7 @@
                         {data.product.name}
                     </div>
                     <div class="text-blue-600 font-bold">
-                        ราคา {data.product.price} บาท
+                        ราคา {price} บาท
                     </div>
                 </div>
                 <div class="px-4 font-bold">{quantity} ชิ้น</div>

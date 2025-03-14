@@ -4,7 +4,16 @@
 
   import { Toaster } from "$lib/components/ui/sonner";
     import '../app.css';
+    import { onMount } from "svelte";
+    import { getMe } from "$lib/api";
+    import { tokenStore } from "$lib/store/auth";
 	let { children } = $props();
+
+
+	onMount(()=>{
+  	if($tokenStore)
+  		getMe();
+	})
 </script>
 
 

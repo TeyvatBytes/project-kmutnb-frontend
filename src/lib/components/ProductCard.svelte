@@ -4,6 +4,7 @@
     import { Label } from "./ui/label";
     import { Button } from "./ui/button";
     import { Input } from "./ui/input";
+    import Decimal from "decimal.js";
 
     let { product, shop } = $props();
 </script>
@@ -37,7 +38,7 @@
         <div class="flex justify-between">
             <div>
                 <span class="text-sky-500 font-bold text-md"
-                    >{product.price.toFixed(2)} บาท</span
+                    >{new Decimal(product.price).toFixed(2)} บาท</span
                 >
             </div>
 

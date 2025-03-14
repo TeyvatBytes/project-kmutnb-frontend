@@ -32,6 +32,7 @@
 		"@elysiajs/eden": "^1.2.0",
 		"@sveltejs/adapter-node": "^5.2.12",
 		"cobe": "^0.6.3",
+		"decimal.js": "^10.5.0",
 		"lucide-svelte": "^0.477.0",
 		"monaco-editor": "^0.52.2",
 		"svelte-exmarkdown": "^4.0.3",
