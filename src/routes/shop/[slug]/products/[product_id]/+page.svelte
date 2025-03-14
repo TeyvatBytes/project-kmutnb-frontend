@@ -58,7 +58,7 @@
             const { data: buyData, error } = await client.api.v1.shops[
                 data.shop.id
             ].products[data.product.id].buy.post({ quantity });
-            if (error) return toast.error(error.value.error);
+            if (error) return toast.error(error.value.message);
 
             toast.success(`ซื้อสินค้าสำเร็จ`);
             showBuySuccessModel = true;
